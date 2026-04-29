@@ -13,11 +13,12 @@
 // 設定画面のバージョン表示が app-version から動的に読まれるため、ユーザーが現在どの版を見ているかを
 // 判別できるようになる。SW のキャッシュバンプを忘れると古いデータが配信され続けるので注意。
 //
-// v1 (app-version 0.1.0): iPass-navi をベースに FE ナビ用にリブランドした初版。
+// v1 (app-version 0.1.0)
+// v2 (app-version 0.2.0): Phase 1着手。シラバスVer.9.0の章構造（22章）展開・科目Aサンプル問題10問・用語12件追加: iPass-navi をベースに FE ナビ用にリブランドした初版。
 //   ストレージキー fe_*、SW キャッシュ fe-navi-*、アプリ名 FE ナビ。
 //   問題データ・教科書・用語辞書は空（科目A/B のスケルトン構造のみ）。
-const CACHE_NAME = 'fe-navi-v1';
-const DATA_CACHE_NAME = 'fe-navi-data-v1';
+const CACHE_NAME = 'fe-navi-v2';
+const DATA_CACHE_NAME = 'fe-navi-data-v2';
 
 // アプリシェル（UIリソース）：初回インストール時にキャッシュするファイルリスト
 const APP_SHELL_FILES = [

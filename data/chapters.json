@@ -1,46 +1,225 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "exam_name": "基本情報技術者試験（FE）",
   "syllabus_version": "Ver.9.0",
   "sections": [
     {
       "section_id": "A",
       "section_name": "科目A",
-      "section_description": "テクノロジ系・マネジメント系・ストラテジ系の知識問題（60問・90分・1問1答）",
-      "exam_ratio": 100,
+      "section_description": "知識問題（60問・90分・4択）。テクノロジ・マネジメント・ストラテジの3系。",
+      "exam_ratio": 60,
       "categories": [
         {
           "category_id": "A-tech",
           "category_name": "テクノロジ系",
-          "chapters": []
+          "chapters": [
+            {
+              "chapter_id": "A-tech-01",
+              "chapter_title": "基礎理論",
+              "description": "離散数学、応用数学、情報理論、オートマトン、形式言語など計算理論の基礎",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-tech-02",
+              "chapter_title": "アルゴリズムとプログラミング",
+              "description": "データ構造、アルゴリズム、プログラミング言語、マークアップ言語、プログラミングの諸概念",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-tech-03",
+              "chapter_title": "コンピュータ構成要素",
+              "description": "プロセッサ、メモリ、バス、入出力デバイス、入出力装置",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-tech-04",
+              "chapter_title": "システム構成要素",
+              "description": "システム構成、システム評価指標、性能・信頼性・経済性",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-tech-05",
+              "chapter_title": "ソフトウェア",
+              "description": "オペレーティングシステム、ミドルウェア、ファイルシステム、開発ツール",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-tech-06",
+              "chapter_title": "ハードウェア",
+              "description": "電気・電子回路、論理回路、機械・制御、IoTデバイス",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-tech-07",
+              "chapter_title": "ヒューマンインタフェース",
+              "description": "ユーザーインタフェース、UX、ユニバーサルデザイン、Webアクセシビリティ",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-tech-08",
+              "chapter_title": "マルチメディア",
+              "description": "音声・画像・動画の符号化、圧縮、3DCG、VR/AR",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-tech-09",
+              "chapter_title": "データベース",
+              "description": "データベース方式、設計、操作、トランザクション、応用",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-tech-10",
+              "chapter_title": "ネットワーク",
+              "description": "ネットワーク方式、データ通信制御、通信プロトコル、応用",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-tech-11",
+              "chapter_title": "セキュリティ",
+              "description": "情報セキュリティ、管理、対策、実装技術、評価、関連法規",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-tech-12",
+              "chapter_title": "システム開発技術",
+              "description": "システム要件定義、設計、実装、テスト、運用・保守、開発手法",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-tech-13",
+              "chapter_title": "ソフトウェア開発管理技術",
+              "description": "開発プロセス・手法、知的財産管理、開発環境管理、構成管理",
+              "pages": []
+            }
+          ]
         },
         {
           "category_id": "A-mgmt",
           "category_name": "マネジメント系",
-          "chapters": []
+          "chapters": [
+            {
+              "chapter_id": "A-mgmt-01",
+              "chapter_title": "プロジェクトマネジメント",
+              "description": "プロジェクト統合・スコープ・スケジュール・コスト・品質・資源・コミュニケーション・リスク管理",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-mgmt-02",
+              "chapter_title": "サービスマネジメント",
+              "description": "サービスマネジメント、運用、ファシリティマネジメント、SLA、ITサービス継続",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-mgmt-03",
+              "chapter_title": "システム監査",
+              "description": "システム監査、内部統制、IT統制、監査計画・実施・報告",
+              "pages": []
+            }
+          ]
         },
         {
           "category_id": "A-strat",
           "category_name": "ストラテジ系",
-          "chapters": []
+          "chapters": [
+            {
+              "chapter_id": "A-strat-01",
+              "chapter_title": "システム戦略",
+              "description": "情報システム戦略、業務プロセス、ソリューションビジネス、システム活用促進・評価",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-strat-02",
+              "chapter_title": "システム企画",
+              "description": "システム化計画、要件定義、調達計画・実施",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-strat-03",
+              "chapter_title": "経営戦略マネジメント",
+              "description": "経営戦略手法、マーケティング、ビジネス戦略、経営管理システム",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-strat-04",
+              "chapter_title": "技術戦略マネジメント",
+              "description": "技術開発戦略、技術開発計画",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-strat-05",
+              "chapter_title": "ビジネスインダストリ",
+              "description": "ビジネスシステム、エンジニアリングシステム、e-ビジネス、IoTシステム・組込みシステム",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-strat-06",
+              "chapter_title": "企業活動",
+              "description": "経営・組織論、業務分析・データ利活用、会計・財務",
+              "pages": []
+            },
+            {
+              "chapter_id": "A-strat-07",
+              "chapter_title": "法務",
+              "description": "知的財産権、セキュリティ関連法規、労働・取引関連法規、その他の法律・ガイドライン・技術者倫理、標準化関連",
+              "pages": []
+            }
+          ]
         }
       ]
     },
     {
       "section_id": "B",
       "section_name": "科目B",
-      "section_description": "プログラミング・アルゴリズム・情報セキュリティの応用問題（20問・100分・疑似言語コードの読解とトレース）",
-      "exam_ratio": 100,
+      "section_description": "応用問題（20問・100分）。疑似言語コードの読解・トレース・情報セキュリティ事例。",
+      "exam_ratio": 40,
       "categories": [
         {
           "category_id": "B-prog",
           "category_name": "プログラミング・アルゴリズム",
-          "chapters": []
+          "chapters": [
+            {
+              "chapter_id": "B-prog-01",
+              "chapter_title": "データ構造",
+              "description": "配列・リスト・木・グラフ・スタック・キュー",
+              "pages": []
+            },
+            {
+              "chapter_id": "B-prog-02",
+              "chapter_title": "アルゴリズム",
+              "description": "探索・整列・再帰・動的計画法",
+              "pages": []
+            },
+            {
+              "chapter_id": "B-prog-03",
+              "chapter_title": "プログラミング言語の基本要素",
+              "description": "変数・型・制御構造・関数・ポインタ・オブジェクト指向の基礎",
+              "pages": []
+            },
+            {
+              "chapter_id": "B-prog-04",
+              "chapter_title": "計算量とトレース",
+              "description": "時間計算量・空間計算量・コードトレース手法",
+              "pages": []
+            }
+          ]
         },
         {
           "category_id": "B-sec",
           "category_name": "情報セキュリティ",
-          "chapters": []
+          "chapters": [
+            {
+              "chapter_id": "B-sec-01",
+              "chapter_title": "情報セキュリティの確保",
+              "description": "脅威・脆弱性の特定、リスクアセスメント、対策の選定と実装",
+              "pages": []
+            },
+            {
+              "chapter_id": "B-sec-02",
+              "chapter_title": "情報セキュリティ管理",
+              "description": "ISMS、規程・マニュアル、教育・訓練、監査、インシデント対応",
+              "pages": []
+            }
+          ]
         }
       ]
     }

@@ -1,4 +1,185 @@
 {
-  "version": "0.1.0",
-  "questions": []
+  "version": "0.2.0",
+  "questions": [
+    {
+      "question_id": "FE-A-T01-001",
+      "chapter_id": "A-tech-01",
+      "category": "A",
+      "difficulty": 2,
+      "question_text": "10進数の156を2進数で表したものとして、正しいものはどれか。",
+      "choices": [
+        { "id": "a", "text": "10011010" },
+        { "id": "b", "text": "10011100" },
+        { "id": "c", "text": "10101100" },
+        { "id": "d", "text": "11001100" }
+      ],
+      "correct_answer": "b",
+      "explanation": "156 = 128 + 16 + 8 + 4 = 2^7 + 2^4 + 2^3 + 2^2。各ビットを並べると 10011100 になります。基本情報では2進数⇔10進数の変換は必須計算なので、2のべき乗（128, 64, 32, 16, 8, 4, 2, 1）を覚えておきましょう。",
+      "related_terms": ["2進数", "基数変換"],
+      "related_page_id": "A-tech-01",
+      "tags": ["基礎理論", "数値計算"]
+    },
+    {
+      "question_id": "FE-A-T02-001",
+      "chapter_id": "A-tech-02",
+      "category": "A",
+      "difficulty": 2,
+      "question_text": "スタック（Stack）の動作原理として、最も適切なものはどれか。",
+      "choices": [
+        { "id": "a", "text": "最初に格納したデータを最初に取り出す（FIFO）" },
+        { "id": "b", "text": "ランダムな順序でデータを取り出す" },
+        { "id": "c", "text": "最後に格納したデータを最初に取り出す（LIFO）" },
+        { "id": "d", "text": "優先度の高いデータを最初に取り出す" }
+      ],
+      "correct_answer": "c",
+      "explanation": "スタックは LIFO（Last In First Out：後入れ先出し）構造。push で追加、pop で取り出す。サブルーチンの戻り先管理や式評価に使われます。FIFO はキューの動作原理。",
+      "related_terms": ["スタック", "LIFO", "キュー"],
+      "related_page_id": "A-tech-02",
+      "tags": ["データ構造", "アルゴリズム"]
+    },
+    {
+      "question_id": "FE-A-T02-002",
+      "chapter_id": "A-tech-02",
+      "category": "A",
+      "difficulty": 3,
+      "question_text": "n個のデータに対する二分探索の最悪計算量として、正しいものはどれか。",
+      "choices": [
+        { "id": "a", "text": "O(log n)" },
+        { "id": "b", "text": "O(n)" },
+        { "id": "c", "text": "O(n log n)" },
+        { "id": "d", "text": "O(n^2)" }
+      ],
+      "correct_answer": "a",
+      "explanation": "二分探索は探索範囲を毎回半分に絞り込むため、最悪でも log₂n 回の比較で済む O(log n)。前提として「データが整列済み」である必要があります。線形探索は O(n)、バブルソートは O(n^2)、マージソート/クイックソートは平均 O(n log n)。",
+      "related_terms": ["二分探索", "計算量", "オーダー記法"],
+      "related_page_id": "A-tech-02",
+      "tags": ["アルゴリズム", "計算量"]
+    },
+    {
+      "question_id": "FE-A-T03-001",
+      "chapter_id": "A-tech-03",
+      "category": "A",
+      "difficulty": 2,
+      "question_text": "CPU のキャッシュメモリの役割として、最も適切なものはどれか。",
+      "choices": [
+        { "id": "a", "text": "電源を切ってもデータが消えない不揮発性のメモリとして使う" },
+        { "id": "b", "text": "周辺機器とのデータ転送を仲介する" },
+        { "id": "c", "text": "プログラムを永続的に保存する" },
+        { "id": "d", "text": "主記憶より高速にアクセスでき、頻繁に使うデータを一時保管する" }
+      ],
+      "correct_answer": "d",
+      "explanation": "キャッシュメモリはCPU内部または近傍に配置されるSRAMで、主記憶（DRAM）よりはるかに高速。CPU と主記憶の速度差を埋めるバッファとして機能します。L1/L2/L3 キャッシュの階層構造があります。",
+      "related_terms": ["キャッシュメモリ", "SRAM", "DRAM"],
+      "related_page_id": "A-tech-03",
+      "tags": ["コンピュータ構成", "メモリ"]
+    },
+    {
+      "question_id": "FE-A-T09-001",
+      "chapter_id": "A-tech-09",
+      "category": "A",
+      "difficulty": 2,
+      "question_text": "関係データベースで、テーブルの行を一意に識別するための列（または列の組み合わせ）を何というか。",
+      "choices": [
+        { "id": "a", "text": "外部キー" },
+        { "id": "b", "text": "主キー（プライマリキー）" },
+        { "id": "c", "text": "インデックス" },
+        { "id": "d", "text": "候補キー" }
+      ],
+      "correct_answer": "b",
+      "explanation": "主キー（Primary Key）は表の各行を一意に識別する列。NULL不可・重複不可。外部キーは別テーブルの主キーを参照する列、インデックスは検索高速化のための索引、候補キーは主キーになり得る列の集合（複数あり得る）。",
+      "related_terms": ["主キー", "外部キー", "正規化"],
+      "related_page_id": "A-tech-09",
+      "tags": ["データベース", "RDB"]
+    },
+    {
+      "question_id": "FE-A-T10-001",
+      "chapter_id": "A-tech-10",
+      "category": "A",
+      "difficulty": 2,
+      "question_text": "TCP/IP のトランスポート層で動作するプロトコルはどれか。",
+      "choices": [
+        { "id": "a", "text": "HTTP" },
+        { "id": "b", "text": "IP" },
+        { "id": "c", "text": "TCP" },
+        { "id": "d", "text": "Ethernet" }
+      ],
+      "correct_answer": "c",
+      "explanation": "OSI/TCP-IP の階層では、TCP・UDP がトランスポート層、HTTP がアプリケーション層、IP がインターネット層、Ethernet がリンク層。TCP は信頼性のあるコネクション型、UDP は高速だが信頼性なしのコネクションレス型。",
+      "related_terms": ["TCP", "UDP", "OSI参照モデル"],
+      "related_page_id": "A-tech-10",
+      "tags": ["ネットワーク", "プロトコル"]
+    },
+    {
+      "question_id": "FE-A-T11-001",
+      "chapter_id": "A-tech-11",
+      "category": "A",
+      "difficulty": 2,
+      "question_text": "公開鍵暗号方式の説明として、最も適切なものはどれか。",
+      "choices": [
+        { "id": "a", "text": "ハッシュ関数を使って一方向に変換する方式" },
+        { "id": "b", "text": "送受信者が同一の鍵を共有して暗号化・復号する方式" },
+        { "id": "c", "text": "通信路上でリアルタイムに鍵を生成する方式" },
+        { "id": "d", "text": "公開鍵で暗号化し、対応する秘密鍵でのみ復号できる方式" }
+      ],
+      "correct_answer": "d",
+      "explanation": "公開鍵暗号は鍵ペア（公開鍵・秘密鍵）を使う。公開鍵は誰でも入手可、秘密鍵は持ち主だけが保持。RSAが代表例。鍵配送問題を解決するため、HTTPSや電子署名で広く利用される。共通鍵方式（選択肢b）より処理が遅いのでハイブリッド暗号で併用される。",
+      "related_terms": ["公開鍵暗号", "RSA", "共通鍵暗号"],
+      "related_page_id": "A-tech-11",
+      "tags": ["セキュリティ", "暗号"]
+    },
+    {
+      "question_id": "FE-A-M01-001",
+      "chapter_id": "A-mgmt-01",
+      "category": "A",
+      "difficulty": 2,
+      "question_text": "プロジェクトのスケジュール管理で使用される「クリティカルパス」の説明として、最も適切なものはどれか。",
+      "choices": [
+        { "id": "a", "text": "プロジェクト内で最も短時間で完了できる経路" },
+        { "id": "b", "text": "予算超過する可能性が最も高い経路" },
+        { "id": "c", "text": "プロジェクト完了までに最も時間がかかる経路（最長経路）" },
+        { "id": "d", "text": "並行作業ができる作業の集合" }
+      ],
+      "correct_answer": "c",
+      "explanation": "クリティカルパスはプロジェクトの開始から終了までの作業経路の中で、所要時間が最も長い経路。この経路上の作業が遅れるとプロジェクト全体が遅延するため、進捗管理で最も重視されます。PERT図やアローダイアグラムで可視化。",
+      "related_terms": ["クリティカルパス", "PERT", "アローダイアグラム"],
+      "related_page_id": "A-mgmt-01",
+      "tags": ["プロジェクトマネジメント", "スケジュール"]
+    },
+    {
+      "question_id": "FE-A-S03-001",
+      "chapter_id": "A-strat-03",
+      "category": "A",
+      "difficulty": 2,
+      "question_text": "SWOT 分析の4つの要素の組み合わせとして、正しいものはどれか。",
+      "choices": [
+        { "id": "a", "text": "Strengths（強み）・Weaknesses（弱み）・Opportunities（機会）・Threats（脅威）" },
+        { "id": "b", "text": "Strategy・Workflow・Operation・Tactics" },
+        { "id": "c", "text": "Sales・Workers・Output・Targets" },
+        { "id": "d", "text": "Speed・Workload・Outsourcing・Time" }
+      ],
+      "correct_answer": "a",
+      "explanation": "SWOT分析は内部環境（強み Strengths・弱み Weaknesses）と外部環境（機会 Opportunities・脅威 Threats）の4象限で組織や事業を分析する経営戦略フレームワーク。クロスSWOT で戦略を導出することが多い。",
+      "related_terms": ["SWOT分析", "経営戦略"],
+      "related_page_id": "A-strat-03",
+      "tags": ["経営戦略", "フレームワーク"]
+    },
+    {
+      "question_id": "FE-A-S07-001",
+      "chapter_id": "A-strat-07",
+      "category": "A",
+      "difficulty": 2,
+      "question_text": "ソフトウェアを保護する知的財産権として、最も適切なものはどれか。",
+      "choices": [
+        { "id": "a", "text": "意匠権" },
+        { "id": "b", "text": "商標権" },
+        { "id": "c", "text": "実用新案権" },
+        { "id": "d", "text": "著作権" }
+      ],
+      "correct_answer": "d",
+      "explanation": "プログラムは「著作物」として著作権法で保護される（著作権法第10条）。創作と同時に発生し、登録不要。意匠権は物品のデザイン、商標権はマーク・名称、実用新案権は物品の形状や構造の小発明を保護するものでソフトウェア保護には適さない。",
+      "related_terms": ["著作権", "知的財産権", "プログラム著作物"],
+      "related_page_id": "A-strat-07",
+      "tags": ["法務", "知的財産"]
+    }
+  ]
 }
