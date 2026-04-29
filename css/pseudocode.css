@@ -1,0 +1,73 @@
+/*
+ * pseudocode.css
+ * 疑似言語コードブロックのスタイル
+ * 等幅フォント・行番号・記号着色で読みやすく表示する
+ */
+
+.pseudo-block {
+  /* 等幅フォント。SF Mono / Menlo / monospace のフォールバック */
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Roboto Mono", monospace;
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin: var(--space-md) 0;
+  overflow-x: auto;
+  white-space: pre;
+  /* iOSでテキスト選択しやすくする */
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.pseudo-line {
+  display: block;
+  white-space: pre;
+}
+
+.pseudo-lineno {
+  display: inline-block;
+  min-width: 2.5em;
+  margin-right: var(--space-sm);
+  color: var(--color-text-disabled);
+  text-align: right;
+  /* 選択コピー時に行番号が混ざらないようにする */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.pseudo-content {
+  /* インデントの空白をそのまま反映するため pre 由来のスペース保持 */
+  white-space: pre;
+}
+
+.pseudo-indent {
+  /* インデントは見た目上のみ。コピーすると pre の空白も入る */
+  color: var(--color-text-disabled);
+}
+
+/* 条件分岐（◆）：暖色寄り */
+.pseudo-sym-cond {
+  color: var(--color-warning);
+  font-weight: var(--font-weight-bold);
+}
+
+/* 繰返し（▲）：寒色寄り */
+.pseudo-sym-loop {
+  color: var(--color-management);
+  font-weight: var(--font-weight-bold);
+}
+
+/* 関数・プログラム定義（■）：プライマリ */
+.pseudo-sym-def {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+/* 代入演算子（←）：薄めのアクセント */
+.pseudo-arrow {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-semibold);
+}

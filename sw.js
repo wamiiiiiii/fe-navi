@@ -13,12 +13,16 @@
 // 設定画面のバージョン表示が app-version から動的に読まれるため、ユーザーが現在どの版を見ているかを
 // 判別できるようになる。SW のキャッシュバンプを忘れると古いデータが配信され続けるので注意。
 //
-// v1 (app-version 0.1.0)
-// v2 (app-version 0.2.0): Phase 1着手。シラバスVer.9.0の章構造（22章）展開・科目Aサンプル問題10問・用語12件追加: iPass-navi をベースに FE ナビ用にリブランドした初版。
+// v1 (app-version 0.1.0): iPass-navi をベースに FE ナビ用にリブランドした初版。
 //   ストレージキー fe_*、SW キャッシュ fe-navi-*、アプリ名 FE ナビ。
 //   問題データ・教科書・用語辞書は空（科目A/B のスケルトン構造のみ）。
-const CACHE_NAME = 'fe-navi-v2';
-const DATA_CACHE_NAME = 'fe-navi-data-v2';
+// v2 (app-version 0.2.0): Phase 1着手。シラバス Ver.9.0 の章構造（22章）展開・
+//   科目A サンプル問題 10 問・用語 12 件追加。
+// v3 (app-version 0.3.0): Phase 2 — 疑似言語コードレンダラー実装。
+//   utils/pseudocode.js + css/pseudocode.css。
+//   科目B サンプル問題 4 問追加（プログラミング 3・情報セキュリティ 1）。
+const CACHE_NAME = 'fe-navi-v3';
+const DATA_CACHE_NAME = 'fe-navi-data-v3';
 
 // アプリシェル（UIリソース）：初回インストール時にキャッシュするファイルリスト
 const APP_SHELL_FILES = [
@@ -35,6 +39,7 @@ const APP_SHELL_FILES = [
   './css/settings.css',
   './css/diagram.css',
   './css/celebration.css',
+  './css/pseudocode.css',
   './js/app.js',
   './js/router.js',
   './js/store.js',
@@ -49,23 +54,17 @@ const APP_SHELL_FILES = [
   './js/utils/diagram.js',
   './js/utils/srs.js',
   './js/utils/celebration.js',
+  './js/utils/pseudocode.js',
   './favicon.png',
   './icons/icon-192.png',
   './icons/icon-512.png',
 ];
 
 // JSONデータファイル：Cache First で管理するファイル
-// loadQuestions() が並行fetchで統合するため、すべての questions*.json を含める
+// loadQuestions() が並行fetchで統合するため、追加した questions*.json も含める想定
 const DATA_FILES = [
   './data/chapters.json',
   './data/questions.json',
-  './data/questions_extra1.json',
-  './data/questions_extra2.json',
-  './data/questions_past2.json',
-  './data/questions_past_r02a.json',
-  './data/questions_past_r04s.json',
-  './data/questions_past_r05.json',
-  './data/questions_past_r06.json',
   './data/glossary.json',
   './data/diagrams.json',
 ];

@@ -76,11 +76,10 @@ export async function loadChapters() {
  *
  * 内部的には複数の questions*.json ファイルを並行 fetch して統合して返す。
  * - questions.json         : オリジナル問題（メイン）
- * - questions_extra1.json  : オリジナル問題（追加 1）
- * - questions_extra2.json  : オリジナル問題（追加 2）
- * - questions_past2.json   : 過去問（R02秋・R03春・R04春）
- * - questions_past_r05.json: 過去問（R05春）
- * - questions_past_r06.json: 過去問（R06春）
+ *
+ * 今後追加するファイル（過去問・類題など）はこの sources 配列に追記する。
+ * 不在ファイルは Promise.allSettled で失敗扱いにし、警告ログを出すだけで
+ * 他のソースは正常に読み込まれる設計。
  *
  * 統合結果は { questions: [...] } 形式で返す（呼び出し側のシグネチャ互換）。
  * 取得済みの統合結果は内部キーでキャッシュし、再取得を防ぐ。
@@ -96,13 +95,6 @@ export async function loadQuestions() {
 
   const sources = [
     './data/questions.json',
-    './data/questions_extra1.json',
-    './data/questions_extra2.json',
-    './data/questions_past2.json',
-    './data/questions_past_r02a.json',
-    './data/questions_past_r04s.json',
-    './data/questions_past_r05.json',
-    './data/questions_past_r06.json',
   ];
 
   // Promise を先にキャッシュして並行アクセス時の重複fetchを抑止する

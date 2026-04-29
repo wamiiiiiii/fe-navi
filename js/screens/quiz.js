@@ -33,6 +33,7 @@ import {
 import { getWeakQuestionIds, calcPastYearStats, getPastWrongQuestionIds } from '../utils/progress.js';
 import { getQuizResults } from '../store.js';
 import { celebrateCorrect } from '../utils/celebration.js';
+import { renderPseudocode } from '../utils/pseudocode.js';
 
 /** 現在の演習セッションの状態（イミュータブルに管理） */
 let _session = null;
@@ -1061,6 +1062,11 @@ function renderQuestionScreen(container) {
     text: displayQuestionText,
   }));
 
+  // 科目B：疑似言語コードが含まれる問題はコードブロックを問題文の直後に挿入する
+  if (current.pseudocode) {
+    questionCard.appendChild(renderPseudocode(current.pseudocode));
+  }
+
   // CBT本番再現：模擬試験モード時は問題カードに「⚑ 見直し」フラグボタンを追加する
   if (_session.mode === 'exam') {
     const isMarked = (_session.reviewMarks || []).includes(current.question_id);
@@ -1477,6 +1483,10 @@ function renderExplanationScreen(container) {
     classes: ['question-text'],
     text: current.question_text,
   }));
+  // 科目B：疑似言語コードがあれば解説画面でも再表示する（学習者が答え合わせ時に見直せるように）
+  if (current.pseudocode) {
+    questionCard.appendChild(renderPseudocode(current.pseudocode));
+  }
   screen.appendChild(questionCard);
 
   // 選択肢（正解・不正解を表示）
