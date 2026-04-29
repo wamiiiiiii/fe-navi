@@ -1,0 +1,384 @@
+/*
+ * settings.css
+ * 設定画面
+ * デザインコンセプト：Apple Settings品質 × プレミアムアイコン背景
+ */
+
+/* ===================================================
+   設定画面全体
+   =================================================== */
+.settings-screen {
+  padding-bottom: var(--space-lg);
+}
+
+/* ===================================================
+   設定セクション
+   =================================================== */
+.settings-section {
+  margin-bottom: var(--space-lg);
+}
+
+.settings-section-header {
+  padding: var(--space-sm) var(--space-md) var(--space-xs);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.settings-card {
+  background-color: var(--color-bg-elevated);
+  margin: 0 var(--space-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+/* ===================================================
+   設定項目
+   =================================================== */
+.settings-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  min-height: var(--tap-target-min);
+  border-bottom: 1px solid var(--color-divider);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.settings-item:last-child { border-bottom: none; }
+.settings-item:active { background-color: var(--color-bg-surface); }
+
+/* 縦並びバリアント：ヘッダー+セレクタを縦に配置する設定項目用 */
+.settings-item--stack {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+/* 設定項目のヘッダー行（アイコン+ラベル+説明文を横一列に並べる） */
+.settings-item-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+/* アイコン背景（Apple風の大きめ角丸正方形） */
+.settings-item-icon {
+  font-size: 2.0rem;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.icon-bg-blue   { background-color: var(--color-primary-light); }
+.icon-bg-orange { background-color: #FFF7ED; }
+.icon-bg-red    { background-color: #FEF2F2; }
+.icon-bg-green  { background-color: #ECFDF5; }
+.icon-bg-purple { background-color: #F5F3FF; }
+.icon-bg-gray   { background-color: var(--color-bg-surface); }
+
+/* ダークテーマ時のアイコン背景をより濃くする */
+[data-theme="dark"] .icon-bg-blue   { background-color: rgba(129, 140, 248, 0.12); }
+[data-theme="dark"] .icon-bg-orange { background-color: rgba(251, 146, 60, 0.12); }
+[data-theme="dark"] .icon-bg-red    { background-color: rgba(248, 113, 113, 0.12); }
+[data-theme="dark"] .icon-bg-green  { background-color: rgba(52, 211, 153, 0.12); }
+[data-theme="dark"] .icon-bg-purple { background-color: rgba(167, 139, 250, 0.12); }
+
+.settings-item-text { flex: 1; }
+
+.settings-item-label {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.settings-item-sublabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+.settings-item-value {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.settings-item-arrow {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-disabled);
+}
+
+/* ===================================================
+   テーマ切り替え
+   =================================================== */
+.theme-selector {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0 0;
+}
+
+.theme-option {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-height: var(--tap-target-min);
+}
+
+.theme-option.is-selected {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.theme-preview {
+  width: 48px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.theme-preview-light {
+  background-color: #F8FAFC;
+  border-color: #E2E8F0;
+}
+
+.theme-preview-dark {
+  background-color: #0F172A;
+  border-color: #334155;
+}
+
+.theme-preview-system {
+  background: linear-gradient(to right, #F8FAFC 50%, #0F172A 50%);
+}
+
+.theme-option-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+.theme-option.is-selected .theme-option-label {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ===================================================
+   文字サイズ切り替え
+   =================================================== */
+.font-size-selector {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0 0;
+}
+
+.font-size-option {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-height: var(--tap-target-min);
+}
+
+.font-size-option.is-selected {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.font-size-preview-small  { font-size: 1.2rem; color: var(--color-text-primary); }
+.font-size-preview-medium { font-size: 1.6rem; color: var(--color-text-primary); }
+.font-size-preview-large  { font-size: 2.0rem; color: var(--color-text-primary); }
+
+.font-size-option-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.font-size-option.is-selected .font-size-option-label {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ===================================================
+   リセットダイアログ
+   =================================================== */
+.reset-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-bg-overlay);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  animation: fade-in var(--transition-fast) ease;
+}
+
+.reset-dialog {
+  background-color: var(--color-bg-elevated);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  width: 100%;
+  max-width: 320px;
+  animation: dialog-in var(--transition-base) ease;
+  box-shadow: var(--shadow-xl);
+}
+
+.reset-dialog-icon {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.reset-dialog-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-error);
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.reset-dialog-body {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-align: center;
+  line-height: var(--line-height-base);
+  margin-bottom: var(--space-lg);
+}
+
+.reset-dialog-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.reset-confirm-btn {
+  width: 100%;
+  padding: var(--space-md);
+  min-height: var(--tap-target-min);
+  background-color: var(--color-error);
+  color: #fff;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+  box-shadow: var(--shadow-glow-error);
+}
+
+.reset-confirm-btn:active { opacity: 0.85; }
+
+.reset-cancel-btn {
+  width: 100%;
+  padding: var(--space-md);
+  min-height: var(--tap-target-min);
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.reset-cancel-btn:active { opacity: 0.75; }
+
+@keyframes dialog-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ===================================================
+   PWAインストールバナー
+   =================================================== */
+.pwa-install-banner {
+  background: var(--color-primary-gradient);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  margin: 0 var(--space-md) var(--space-md);
+  color: var(--color-text-on-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.pwa-install-icon { font-size: 3.2rem; flex-shrink: 0; }
+
+.pwa-install-text { flex: 1; }
+
+.pwa-install-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-xs);
+}
+
+.pwa-install-desc {
+  font-size: var(--font-size-xs);
+  opacity: 0.85;
+  line-height: var(--line-height-base);
+}
+
+.pwa-install-btn {
+  padding: var(--space-xs) var(--space-md);
+  min-height: 36px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast);
+  backdrop-filter: blur(4px);
+}
+
+.pwa-install-btn:active { background-color: rgba(255, 255, 255, 0.35); }
+
+/* ===================================================
+   バージョン情報
+   =================================================== */
+.settings-version {
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-disabled);
+}
+
+.settings-version-app {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}

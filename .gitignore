@@ -1,0 +1,18 @@
+# PDF原本（IPA著作物）と OCR結果はリポジトリに含めない
+data/raw_pdfs/
+data/raw_pdfs/**
+
+# Python キャッシュ・テンポラリ
+**/__pycache__/
+*.pyc
+
+# データ生成スクリプトとドキュメント素材は配信不要
+data/gen_*.py
+docs/screenshots/
+
+# Node / Playwright
+node_modules/
+package-lock.json
+playwright-report/
+test-results/
+.playwright/

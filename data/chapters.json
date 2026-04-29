@@ -1,0 +1,48 @@
+{
+  "version": "0.1.0",
+  "exam_name": "基本情報技術者試験（FE）",
+  "syllabus_version": "Ver.9.0",
+  "sections": [
+    {
+      "section_id": "A",
+      "section_name": "科目A",
+      "section_description": "テクノロジ系・マネジメント系・ストラテジ系の知識問題（60問・90分・1問1答）",
+      "exam_ratio": 100,
+      "categories": [
+        {
+          "category_id": "A-tech",
+          "category_name": "テクノロジ系",
+          "chapters": []
+        },
+        {
+          "category_id": "A-mgmt",
+          "category_name": "マネジメント系",
+          "chapters": []
+        },
+        {
+          "category_id": "A-strat",
+          "category_name": "ストラテジ系",
+          "chapters": []
+        }
+      ]
+    },
+    {
+      "section_id": "B",
+      "section_name": "科目B",
+      "section_description": "プログラミング・アルゴリズム・情報セキュリティの応用問題（20問・100分・疑似言語コードの読解とトレース）",
+      "exam_ratio": 100,
+      "categories": [
+        {
+          "category_id": "B-prog",
+          "category_name": "プログラミング・アルゴリズム",
+          "chapters": []
+        },
+        {
+          "category_id": "B-sec",
+          "category_name": "情報セキュリティ",
+          "chapters": []
+        }
+      ]
+    }
+  ]
+}

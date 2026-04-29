@@ -1,0 +1,979 @@
+/*
+ * home.css
+ * ホーム画面（ダッシュボード）
+ * デザインコンセプト：プレミアム × シャドウエレベーション × 洗練されたグラデーション
+ */
+
+/* ===================================================
+   ダッシュボード全体
+   =================================================== */
+.home-screen {
+  padding-bottom: var(--space-lg);
+}
+
+/* ===================================================
+   ウェルカムバナー（Figma Make エディトリアルスタイル）
+   =================================================== */
+.home-welcome {
+  /* グラデーションなし・ウォームクリーム背景 */
+  background: var(--color-bg-base);
+  color: var(--color-text-primary);
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  margin-bottom: var(--space-lg);
+  /* 下部に区切り線 */
+  border-bottom: 1px solid var(--color-divider);
+  animation: fade-in-up 0.6s ease-out;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 基本情報技術者 ラベルバッジ（Figma Make のアクセントラベル） */
+.home-app-label {
+  display: inline-block;
+  margin-bottom: var(--space-sm);
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
+  border: 1px solid rgba(217, 119, 87, 0.25);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-app-title {
+  /* Figma Make スタイル：セリフフォントの大見出し */
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-2xl);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.home-welcome-sub {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+  font-weight: var(--font-weight-normal);
+}
+
+/* 全体進捗サマリー */
+.home-progress-summary {
+  /* Figma Make スタイル：ボーダーカード */
+  background-color: var(--color-bg-elevated);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+}
+
+.home-progress-number {
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+}
+
+.home-progress-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.home-progress-bar {
+  height: 4px;
+  background-color: var(--color-divider);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.home-progress-bar-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
+}
+
+/* ===================================================
+   スタッツグリッド（シャドウエレベーション・ボーダーレス）
+   =================================================== */
+.home-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  padding: 0 var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.stat-card {
+  background-color: var(--color-bg-elevated);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-md);
+  text-align: center;
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.stat-card:active {
+  transform: scale(0.98);
+}
+
+.stat-card-value {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+  letter-spacing: -0.02em;
+}
+
+.stat-card-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* 判定基準の補足テキスト */
+.stat-card-desc {
+  margin-top: var(--space-xs);
+  font-size: 1.0rem;
+  color: var(--color-text-disabled);
+  line-height: var(--line-height-tight);
+}
+
+/* サブ情報（ボーダーの代わりに薄い背景で区切る） */
+.stat-card-sub {
+  margin-top: var(--space-sm);
+  padding-top: var(--space-sm);
+  background: linear-gradient(to bottom, var(--color-divider) 0%, var(--color-divider) 1px, transparent 1px);
+  font-size: var(--font-size-xs);
+}
+
+.stat-card-sub-value {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.stat-card-sub-label {
+  color: var(--color-text-disabled);
+}
+
+/* 合格判定カードの色分け */
+/* WCAG AA を満たすため、warning系は彩度の高いネオンではなくテーマトークンに統一 */
+.stat-card-green .stat-card-value { color: var(--color-success); }
+.stat-card-orange .stat-card-value { color: var(--color-accent); }
+.stat-card-yellow .stat-card-value { color: var(--color-warning); }
+.stat-card-red .stat-card-value { color: var(--color-error); }
+.stat-card-gray .stat-card-value { color: var(--color-text-secondary); }
+
+/* ===================================================
+   セクションタイトル
+   =================================================== */
+.home-section {
+  padding: 0 var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.home-section-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.01em;
+}
+
+/* ===================================================
+   分野別進捗カード（Figma Make ボーダースタイル）
+   =================================================== */
+.section-progress-card {
+  background-color: var(--color-bg-elevated);
+  border-radius: var(--radius-md);
+  /* Figma Make スタイル：ボーダー + ホバーで border-primary */
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-md);
+  margin-bottom: var(--space-sm);
+  cursor: pointer;
+  transition: box-shadow var(--transition-base), transform var(--transition-base), border-color var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* タッチ端末では :hover が貼りついて transform が残る古典バグを避けるため、ポインタ環境のみ適用 */
+@media (hover: hover) and (pointer: fine) {
+  .section-progress-card:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
+  }
+}
+
+.section-progress-card:active {
+  transform: scale(0.99);
+}
+
+.section-progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-progress-name {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.section-progress-pct {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.section-exam-ratio {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+/* ===================================================
+   クイックアクション（シャドウエレベーション・ホバーオーバーレイ）
+   =================================================== */
+.home-quick-actions {
+  padding: 0 var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.quick-action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.quick-action-btn {
+  background-color: var(--color-bg-elevated);
+  border-radius: var(--radius-md);
+  /* Figma Make スタイル */
+  border: 1.5px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  cursor: pointer;
+  transition: box-shadow var(--transition-base), transform var(--transition-base), border-color var(--transition-base);
+  min-height: var(--tap-target-min);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .quick-action-btn:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+}
+
+.quick-action-btn:active {
+  transform: scale(0.98);
+}
+
+.quick-action-icon {
+  font-size: 2.4rem;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.quick-action-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.quick-action-desc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-tight);
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================================================
+   苦手分野アラート
+   =================================================== */
+.home-weak-alert {
+  padding: 0 var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.weak-alert-card {
+  background-color: var(--color-error-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.weak-alert-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.weak-alert-icon { font-size: 2.0rem; }
+
+.weak-alert-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-error);
+}
+
+.weak-alert-body {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.weak-alert-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background-color: var(--color-error);
+  color: #fff;
+  border-radius: var(--radius-full);
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  min-height: var(--tap-target-min);
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+  box-shadow: var(--shadow-glow-error);
+}
+
+.weak-alert-btn:active { opacity: 0.85; }
+
+/* ===================================================
+   最近の学習履歴（左カラーアクセントバー付き）
+   =================================================== */
+.home-recent {
+  padding: 0 var(--space-md);
+}
+
+.recent-session-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-sm) var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-xs);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-elevated);
+  position: relative;
+  transition: background-color var(--transition-fast);
+}
+
+/* 左端のカラーアクセントバー */
+.recent-session-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 25%;
+  bottom: 25%;
+  width: 3px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-gradient);
+}
+
+.recent-session-item:last-child {
+  margin-bottom: 0;
+}
+
+.recent-session-score {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.recent-session-info { flex: 1; }
+
+.recent-session-date {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: 2px;
+}
+
+.recent-session-detail {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* ===================================================
+   初回オンボーディングカード
+   =================================================== */
+.onboarding-card {
+  margin: 0 var(--space-md) var(--space-md);
+  background: linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+}
+
+[data-theme="dark"] .onboarding-card {
+  background: linear-gradient(135deg, rgba(45, 53, 97, 0.1) 0%, rgba(45, 53, 97, 0.1) 100%);
+}
+
+.onboarding-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.onboarding-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.onboarding-title-group { flex: 1; }
+
+.onboarding-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.onboarding-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.onboarding-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.onboarding-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.onboarding-step-num {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-primary-gradient);
+  color: var(--color-text-on-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.onboarding-step-text {
+  flex: 1;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-base);
+}
+
+.onboarding-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.onboarding-btn-primary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  min-height: var(--tap-target-min);
+  background: var(--color-primary-gradient);
+  color: var(--color-text-on-primary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.onboarding-btn-primary:active { opacity: 0.85; }
+
+.onboarding-btn-secondary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  min-height: var(--tap-target-min);
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.onboarding-btn-secondary:active {
+  background-color: var(--color-primary-light);
+}
+
+/* ===================================================
+   今日の復習カード（SRS）
+   =================================================== */
+.home-srs-review-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark, var(--color-primary)));
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+@media (hover: hover) and (pointer: fine) {
+  .home-srs-review-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+}
+.home-srs-review-card:active { transform: translateY(0); }
+.srs-review-left { display: flex; align-items: center; gap: var(--space-md); }
+.srs-review-icon { font-size: 1.8rem; }
+.srs-review-text { display: flex; flex-direction: column; gap: 2px; text-align: left; }
+.srs-review-title { font-size: var(--font-size-md); font-weight: var(--font-weight-bold); }
+.srs-review-sub { font-size: var(--font-size-xs); opacity: 0.9; }
+.srs-review-cta { font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); }
+
+/* ===================================================
+   分野別進捗カード内のマスター勲章
+   =================================================== */
+.section-mastery-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--color-border);
+  font-size: var(--font-size-xs);
+}
+.section-mastery-icon { font-size: 1rem; }
+.section-mastery-text { color: var(--color-text-secondary); }
+
+/* ===================================================
+   今日の学習計画セクション
+   =================================================== */
+.home-today-plan {
+  margin-bottom: var(--space-md);
+  padding: var(--space-md);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+.today-plan-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--space-sm);
+}
+.today-plan-icon { font-size: 1.2rem; }
+.today-plan-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+  color: var(--color-text-primary);
+}
+.today-plan-task {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 10px 12px;
+  margin-top: 8px;
+  background-color: var(--color-bg-surface);
+  border-left: 4px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+.today-plan-task-srs { border-left-color: var(--color-primary); }
+.today-plan-task-weak { border-left-color: var(--color-error); }
+.today-plan-task-textbook { border-left-color: var(--color-success); }
+.today-plan-task-quota { border-left-color: var(--color-warning); }
+.today-plan-task-default { border-left-color: var(--color-text-secondary); }
+.today-plan-priority {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-bold);
+}
+.today-plan-body { flex: 1; min-width: 0; }
+.today-plan-task-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+.today-plan-task-detail {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+.today-plan-action {
+  flex: 0 0 auto;
+  padding: 6px 12px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.today-plan-action:hover { opacity: 0.9; }
+
+/* =====================================================
+   ヒーローセクション（Phase 3 リデザイン）
+   「今日やること」と「学習を始める」CTAを画面トップに集約
+   ===================================================== */
+
+.home-hero {
+  /* 縦に積み重ねるレイアウト。各要素間に空気感のある余白を設ける */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  /* グラデーション背景でアプリの主役感を演出 */
+  background: var(--color-primary-gradient);
+  color: var(--color-text-on-primary);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  margin: var(--space-md);
+  box-shadow: var(--shadow-glow-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- トップバー：タイトル + ストリーク --- */
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.hero-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-app-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  font-weight: var(--font-weight-semibold);
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.hero-app-title {
+  /* セリフフォントでブランド感を出す（既存のhome-app-titleと同じトーン） */
+  font-family: 'Crimson Pro', 'Noto Serif JP', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.hero-streak-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 6px 10px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+}
+
+.hero-streak-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* --- マスコット枠 --- */
+.hero-mascot {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+}
+
+.hero-mascot-img {
+  /* 仮の絵文字サイズ。画像差し替え時はimgタグでwidth/heightを指定 */
+  font-size: 3rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.hero-mascot-message {
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+  font-weight: var(--font-weight-medium);
+}
+
+/* --- カウントダウン --- */
+.hero-countdown {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  font-size: var(--font-size-sm);
+}
+
+.hero-countdown-icon {
+  font-size: 1.1rem;
+}
+
+.hero-countdown-text {
+  font-weight: var(--font-weight-semibold);
+}
+
+.hero-countdown-quota {
+  background-color: rgba(255, 255, 255, 0.18);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+}
+
+/* --- 進捗バー --- */
+.hero-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-progress-label {
+  font-size: var(--font-size-xs);
+  opacity: 0.85;
+}
+
+.hero-progress-bar {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-full);
+  height: 8px;
+  overflow: hidden;
+}
+
+.hero-progress-fill {
+  /* 進捗％はJS側でstyle.widthを設定する */
+  background-color: #fff;
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease;
+}
+
+/* --- CTAボタン --- */
+.hero-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  width: 100%;
+  background-color: #fff;
+  color: var(--color-primary);
+  padding: var(--space-md) var(--space-lg);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  /* タップ時のシャドウ強化でフィードバックを視覚的に伝える */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-cta-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.hero-cta-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.hero-cta-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-cta-label {
+  font-size: 0.65rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.hero-cta-task-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.3;
+  /* 長いタイトルでも崩れないよう省略 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hero-cta-task-detail {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.hero-cta-arrow-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.hero-cta-action {
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+}
+
+.hero-cta-arrow-icon {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+}
+
+/* =====================================================
+   折りたたみセクション（アコーディオン）
+   <details>/<summary> を使ったネイティブ実装
+   ===================================================== */
+
+.home-collapsible {
+  background-color: var(--color-bg-elevated);
+  border-radius: var(--radius-md);
+  margin: var(--space-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.home-collapsible-summary {
+  /* listスタイルマーカーを消す（chrome/safariのデフォルト三角形を非表示に） */
+  list-style: none;
+  cursor: pointer;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--transition-fast);
+}
+
+.home-collapsible-summary::-webkit-details-marker {
+  /* Safari/Chrome のデフォルト三角形を消す */
+  display: none;
+}
+
+/* 旧 Safari (~16) 対応：::marker でも消えない場合のフォールバック */
+.home-collapsible-summary::marker {
+  display: none;
+  content: '';
+}
+
+.home-collapsible-summary:hover {
+  background-color: var(--color-bg-surface);
+}
+
+.home-collapsible-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.home-collapsible-chevron {
+  /* 開閉時に180度回転するシェブロン記号 */
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  transition: transform var(--transition-fast);
+}
+
+.home-collapsible[open] .home-collapsible-chevron {
+  transform: rotate(180deg);
+}
+
+/* 中身のセクションは余白とリセットを最小限に */
+.home-collapsible > *:not(summary) {
+  padding: 0 var(--space-md) var(--space-md);
+}
+
+/* 中の home-section は既に padding を持っているため、二重余白を防ぐ */
+.home-collapsible > .home-section {
+  padding: 0;
+}
+.home-collapsible > .home-section .home-section-title {
+  /* アコーディオン内では section-title を非表示にしてシンプル化 */
+  display: none;
+}
+
+/* スタッツグリッドのアコーディオン内余白調整 */
+.home-collapsible > .home-stats-grid {
+  margin: var(--space-sm) 0 0;
+}
+

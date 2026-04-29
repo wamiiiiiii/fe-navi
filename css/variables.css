@@ -1,0 +1,280 @@
+/*
+ * variables.css
+ * アプリ全体で使用するCSS変数（カスタムプロパティ）を定義する
+ * デザインコンセプト：プレミアム × Apple風ミニマル × グラスモーフィズム
+ */
+
+/* ===================================================
+   ライトテーマ（デフォルト）
+   =================================================== */
+:root,
+[data-theme="light"] {
+  /* --- メインカラー（Figma Makeデザイン：ダークネイビー） --- */
+  --color-primary: #2d3561;
+  --color-primary-dark: #1e2547;
+  --color-primary-light: rgba(45, 53, 97, 0.08);
+  --color-primary-gradient: linear-gradient(135deg, #2d3561 0%, #3d4a82 100%);
+
+  /* --- アクセントカラー（テラコッタ） --- */
+  --color-accent: #d97757;
+  --color-accent-light: rgba(217, 119, 87, 0.10);
+
+  /* --- 背景色（Figma Make：ウォームクリーム） --- */
+  --color-bg-base: #faf9f6;
+  --color-bg-surface: #f4f1ea;
+  --color-bg-elevated: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-bg-overlay: rgba(26, 26, 46, 0.45);
+
+  /* --- テキスト色 --- */
+  /* WCAG AA を満たすため、disabled は背景白に対して4.5:1以上を確保 */
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #6b6b7c;
+  --color-text-disabled: #7a7a8a;
+  --color-text-on-primary: #faf9f6;
+
+  /* --- ボーダー・区切り線 --- */
+  --color-border: rgba(45, 53, 97, 0.14);
+  --color-divider: #e8e5dc;
+
+  /* --- セマンティックカラー --- */
+  --color-success: #6aaa89;
+  --color-success-light: rgba(139, 196, 168, 0.12);
+  --color-error: #d14343;
+  --color-error-light: rgba(209, 67, 67, 0.08);
+  --color-warning: #c8893a;
+  --color-warning-light: rgba(200, 137, 58, 0.10);
+  --color-info: #2d3561;
+  --color-info-light: rgba(45, 53, 97, 0.08);
+
+  /* --- 出題頻度バッジ色 --- */
+  --color-freq-high: #d14343;
+  --color-freq-medium: #c8893a;
+  --color-freq-low: #6aaa89;
+
+  /* --- シャドウ（控えめで温かみのある） --- */
+  --shadow-sm:
+    0 1px 2px rgba(26, 26, 46, 0.04),
+    0 1px 3px rgba(26, 26, 46, 0.03);
+  --shadow-md:
+    0 2px 4px rgba(26, 26, 46, 0.03),
+    0 4px 16px rgba(26, 26, 46, 0.06),
+    0 8px 24px rgba(26, 26, 46, 0.03);
+  --shadow-lg:
+    0 4px 8px rgba(26, 26, 46, 0.04),
+    0 8px 24px rgba(26, 26, 46, 0.08),
+    0 16px 48px rgba(26, 26, 46, 0.04);
+  --shadow-xl:
+    0 8px 16px rgba(26, 26, 46, 0.05),
+    0 16px 48px rgba(26, 26, 46, 0.10),
+    0 24px 64px rgba(26, 26, 46, 0.05);
+  --shadow-nav:
+    0 -1px 0 rgba(26, 26, 46, 0.06),
+    0 -4px 16px rgba(26, 26, 46, 0.04);
+  --shadow-glow-primary: 0 0 20px rgba(45, 53, 97, 0.15);
+  --shadow-glow-success: 0 0 16px rgba(106, 170, 137, 0.2);
+  --shadow-glow-error: 0 0 16px rgba(209, 67, 67, 0.2);
+
+  /* --- グラスモーフィズム --- */
+  --glass-bg: rgba(250, 249, 246, 0.82);
+  --glass-border: rgba(45, 53, 97, 0.10);
+  --glass-blur: saturate(160%) blur(20px);
+
+  /* --- ナビゲーション --- */
+  --color-nav-bg: rgba(250, 249, 246, 0.92);
+  --color-nav-active: #2d3561;
+  --color-nav-inactive: #9b9baa;
+
+  /* --- 分野カラー（Figma Make chart colors） --- */
+  --color-strategy: #d97757;
+  --color-strategy-light: rgba(217, 119, 87, 0.12);
+  --color-management: #6b9bd1;
+  --color-management-light: rgba(107, 155, 209, 0.12);
+  --color-technology: #8bc4a8;
+  --color-technology-light: rgba(139, 196, 168, 0.12);
+}
+
+/* ===================================================
+   ダークテーマ
+   =================================================== */
+[data-theme="dark"] {
+  --color-primary: #8b99d4;
+  --color-primary-dark: #6b7bbf;
+  --color-primary-light: rgba(139, 153, 212, 0.12);
+  --color-primary-gradient: linear-gradient(135deg, #8b99d4 0%, #a0aee0 100%);
+
+  --color-accent: #e8906e;
+  --color-accent-light: rgba(232, 144, 110, 0.12);
+
+  --color-bg-base: #14131a;
+  --color-bg-surface: #1c1b25;
+  --color-bg-elevated: #201f2c;
+  --color-bg-card: #201f2c;
+  --color-bg-overlay: rgba(0, 0, 0, 0.6);
+
+  --color-text-primary: #e8e6f0;
+  --color-text-secondary: #8f8fa8;
+  /* ダーク背景上で AA を確保するため明度を上げる */
+  --color-text-disabled: #8a8aa0;
+  --color-text-on-primary: #14131a;
+
+  --color-border: rgba(139, 153, 212, 0.18);
+  --color-divider: #2a2938;
+
+  --color-success: #7dc4a0;
+  --color-success-light: rgba(125, 196, 160, 0.12);
+  --color-error: #e06565;
+  --color-error-light: rgba(224, 101, 101, 0.10);
+  --color-warning: #d9a055;
+  --color-warning-light: rgba(217, 160, 85, 0.12);
+  --color-info: #8b99d4;
+  --color-info-light: rgba(139, 153, 212, 0.10);
+
+  --color-freq-high: #e06565;
+  --color-freq-medium: #d9a055;
+  --color-freq-low: #7dc4a0;
+
+  --shadow-sm:
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    0 1px 3px rgba(0, 0, 0, 0.15);
+  --shadow-md:
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.1);
+  --shadow-lg:
+    0 4px 8px rgba(0, 0, 0, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    0 16px 48px rgba(0, 0, 0, 0.15);
+  --shadow-xl:
+    0 8px 16px rgba(0, 0, 0, 0.2),
+    0 16px 48px rgba(0, 0, 0, 0.3),
+    0 24px 64px rgba(0, 0, 0, 0.2);
+  --shadow-nav:
+    0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 -4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-glow-primary: 0 0 24px rgba(139, 153, 212, 0.2);
+  --shadow-glow-success: 0 0 20px rgba(125, 196, 160, 0.2);
+  --shadow-glow-error: 0 0 20px rgba(224, 101, 101, 0.2);
+
+  --glass-bg: rgba(20, 19, 26, 0.82);
+  --glass-border: rgba(139, 153, 212, 0.15);
+  --glass-blur: saturate(160%) blur(20px);
+
+  --color-nav-bg: rgba(20, 19, 26, 0.92);
+  --color-nav-active: #8b99d4;
+  --color-nav-inactive: #5a5a72;
+
+  --color-strategy: #e8906e;
+  --color-strategy-light: rgba(232, 144, 110, 0.14);
+  --color-management: #7fb2e8;
+  --color-management-light: rgba(127, 178, 232, 0.14);
+  --color-technology: #9dd4b8;
+  --color-technology-light: rgba(157, 212, 184, 0.14);
+}
+
+/* ===================================================
+   フォント設定
+   =================================================== */
+:root {
+  /* サンセリフ：本文用（Figma Make DM Sans） */
+  --font-family-base:
+    'DM Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Hiragino Kaku Gothic ProN',
+    'Hiragino Sans',
+    'Noto Sans JP',
+    sans-serif;
+
+  /* セリフ：見出し用（Figma Make Crimson Pro） */
+  --font-family-serif:
+    'Crimson Pro',
+    'Noto Serif JP',
+    'Yu Mincho',
+    serif;
+
+  /* フォントサイズ（rem基準：1rem = 10px） */
+  /* base は iOS の推奨最小（16px）に合わせる。問題本文・選択肢の可読性向上 */
+  --font-size-xs: 1.1rem;
+  --font-size-sm: 1.3rem;
+  --font-size-base: 1.6rem;
+  --font-size-md: 1.7rem;
+  --font-size-lg: 2.0rem;
+  --font-size-xl: 2.4rem;
+  --font-size-2xl: 3.0rem;
+
+  /* 行間 */
+  --line-height-tight: 1.3;
+  --line-height-base: 1.65;
+  --line-height-loose: 1.9;
+
+  /* フォントウェイト */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+/* 文字サイズ「小」 */
+[data-font-size="small"] {
+  --font-size-xs: 1.0rem;
+  --font-size-sm: 1.2rem;
+  --font-size-base: 1.4rem;
+  --font-size-md: 1.6rem;
+  --font-size-lg: 1.8rem;
+  --font-size-xl: 2.0rem;
+  --font-size-2xl: 2.4rem;
+}
+
+/* 文字サイズ「大」 */
+[data-font-size="large"] {
+  --font-size-xs: 1.3rem;
+  --font-size-sm: 1.5rem;
+  --font-size-base: 1.8rem;
+  --font-size-md: 2.0rem;
+  --font-size-lg: 2.2rem;
+  --font-size-xl: 2.6rem;
+  --font-size-2xl: 3.2rem;
+}
+
+/* ===================================================
+   スペーシング・サイズ定数
+   =================================================== */
+:root {
+  /* スペーシング */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* 角丸（大きめで柔らかい印象に） */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* レイアウト基準 */
+  --app-max-width: 430px;
+  --nav-height: 64px;
+  --header-height: 56px;
+
+  /* タップターゲット最小サイズ */
+  --tap-target-min: 44px;
+
+  /* アニメーション（Apple風のスプリングイージング） */
+  --transition-fast: 150ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-base: 300ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-slow: 500ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* z-index */
+  --z-base: 0;
+  --z-card: 10;
+  --z-header: 100;
+  --z-nav: 100;
+  --z-modal: 200;
+  --z-toast: 300;
+}

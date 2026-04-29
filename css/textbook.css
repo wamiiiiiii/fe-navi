@@ -1,0 +1,502 @@
+/*
+ * textbook.css
+ * 教科書モード
+ * デザインコンセプト：読みやすさ × プレミアム品質 × 呼吸感のある余白
+ */
+
+/* ===================================================
+   分野一覧画面
+   =================================================== */
+.textbook-screen {
+  padding-bottom: var(--space-lg);
+}
+
+.textbook-intro {
+  padding: var(--space-md) var(--space-md) var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ===================================================
+   分野カード（ヘッダーを少し大きく・シャドウエレベーション）
+   =================================================== */
+.section-card {
+  margin: 0 var(--space-md) var(--space-sm);
+  background-color: var(--color-bg-elevated);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.section-card:active {
+  transform: scale(0.99);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 分野ヘッダー（少し高くしてパディングを増やし、プレミアム感を強調） */
+.section-card-header {
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* 分野ごとの色（テーマ変数を使用しライト/ダーク両対応） */
+.section-card.strategy .section-card-header {
+  background-color: var(--color-strategy);
+  color: #fff;
+}
+
+.section-card.management .section-card-header {
+  background-color: var(--color-management);
+  color: #fff;
+}
+
+.section-card.technology .section-card-header {
+  background-color: var(--color-technology);
+  color: #fff;
+}
+
+.section-card-icon {
+  font-size: 3.2rem;
+  line-height: 1;
+}
+
+.section-card-info { flex: 1; }
+
+.section-card-name {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-xs);
+  letter-spacing: -0.01em;
+}
+
+.section-card-ratio {
+  font-size: var(--font-size-sm);
+  opacity: 0.85;
+}
+
+.section-card-footer {
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.section-card-progress-text {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  font-weight: var(--font-weight-medium);
+}
+
+.section-card-progress-bar {
+  flex: 1;
+  height: 4px;
+  background-color: var(--color-bg-surface);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.section-card-progress-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
+}
+
+.section-card.strategy .section-card-progress-fill {
+  background-color: var(--color-strategy);
+}
+
+.section-card.management .section-card-progress-fill {
+  background-color: var(--color-management);
+}
+
+.section-card.technology .section-card-progress-fill {
+  background-color: var(--color-technology);
+}
+
+/* ===================================================
+   章一覧
+   =================================================== */
+.chapter-list {
+  padding: var(--space-sm) var(--space-md);
+}
+
+.chapter-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-divider);
+  cursor: pointer;
+  min-height: var(--tap-target-min);
+  transition: background-color var(--transition-fast);
+}
+
+.chapter-item:last-child { border-bottom: none; }
+.chapter-item:active { background-color: var(--color-bg-surface); }
+
+.chapter-id-badge {
+  min-width: 42px;
+  height: 42px;
+  background: var(--color-primary-gradient);
+  color: #fff;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.chapter-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.chapter-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin-bottom: 3px;
+}
+
+.chapter-desc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.chapter-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.chapter-progress-pct {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.chapter-completed-icon {
+  font-size: 1.8rem;
+  color: var(--color-success);
+}
+
+/* ===================================================
+   節コンテンツ（十分な余白で読みやすさを確保）
+   =================================================== */
+.page-content-screen {
+  padding: var(--space-md);
+}
+
+.page-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
+}
+
+/* コンテンツカード（シャドウエレベーション・十分なパディング） */
+.content-card {
+  background-color: var(--color-bg-elevated);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-xl) var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.content-body {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-loose);
+  color: var(--color-text-primary);
+  white-space: pre-line;
+}
+
+/* キーワードハイライト（ホバーで背景色ティント） */
+.keyword-highlight {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  border-bottom: 2px solid rgba(45, 53, 97, 0.3);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.keyword-highlight:active {
+  background-color: rgba(45, 53, 97, 0.08);
+  border-bottom-color: rgba(45, 53, 97, 0.5);
+}
+
+/* ダークテーマのキーワードハイライト */
+[data-theme="dark"] .keyword-highlight:active {
+  background-color: rgba(129, 140, 248, 0.12);
+}
+
+/* ===================================================
+   ポイントまとめカード（太い左ボーダー・グラデーション背景）
+   =================================================== */
+.summary-card {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, rgba(245, 243, 255, 0.5) 100%);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-md);
+  margin-bottom: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme="dark"] .summary-card {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, rgba(30, 27, 75, 0.3) 100%);
+}
+
+.summary-card-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.summary-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-base);
+}
+
+.summary-list-item::before {
+  content: '\2713';
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ===================================================
+   ページナビゲーション（少し背が高いボタン）
+   =================================================== */
+.page-navigation {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.page-nav-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  min-height: 52px;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.page-nav-btn-prev {
+  background-color: var(--color-bg-elevated);
+  color: var(--color-text-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.page-nav-btn-next {
+  background: var(--color-primary-gradient);
+  color: var(--color-text-on-primary);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.page-nav-btn:active {
+  opacity: 0.8;
+  transform: scale(0.98);
+}
+
+.page-nav-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+.chapter-quiz-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  min-height: var(--tap-target-min);
+  /* テーマ変数化：ハードコード旧色 → success系トークン。ライト/ダーク両対応 */
+  background-color: var(--color-success);
+  color: #fff;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+  margin-bottom: var(--space-md);
+  box-shadow: var(--shadow-glow-success);
+}
+
+.chapter-quiz-btn:active { opacity: 0.85; }
+
+/* 0問の章は無効化表示。クリックできないことを視覚で伝える */
+.chapter-quiz-btn.is-disabled,
+.chapter-quiz-btn[disabled] {
+  background-color: var(--color-text-disabled);
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+/* 節（細分化された項目）単位の問題ボタン。章ボタンよりやや控えめなセカンダリスタイル */
+.section-quiz-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  min-height: var(--tap-target-min);
+  background-color: var(--color-bg-elevated);
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+  margin-bottom: var(--space-md);
+}
+
+.section-quiz-btn:active {
+  background-color: var(--color-primary-light);
+}
+
+/* ===================================================
+   既読ドット
+   =================================================== */
+.page-progress-bar {
+  padding: var(--space-xs) var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.page-progress-dots {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.page-progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-border);
+  transition: background-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.page-progress-dot.is-read {
+  background: var(--color-primary-gradient);
+}
+
+.page-progress-dot.is-current {
+  background: var(--color-primary-gradient);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+/* ===================================================
+   用語ポップアップ
+   =================================================== */
+.glossary-popup {
+  position: fixed;
+  bottom: calc(var(--nav-height) + var(--space-md));
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - var(--space-lg) * 2);
+  max-width: calc(var(--app-max-width) - var(--space-lg) * 2);
+  background-color: var(--color-bg-elevated);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  padding: var(--space-lg) var(--space-md);
+  z-index: var(--z-modal);
+  animation: popup-in var(--transition-base) ease;
+}
+
+.glossary-popup-term {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.glossary-popup-def {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-base);
+  margin-bottom: var(--space-sm);
+}
+
+.glossary-popup-link {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+
+.glossary-popup-close {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: var(--tap-target-min);
+  height: var(--tap-target-min);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  border-radius: var(--radius-full);
+}
+
+.glossary-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-bg-overlay);
+  z-index: calc(var(--z-modal) - 1);
+  animation: fade-in var(--transition-fast) ease;
+}
+
+@keyframes popup-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(12px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
