@@ -21,8 +21,10 @@
 // v3 (app-version 0.3.0): Phase 2 — 疑似言語コードレンダラー実装。
 //   utils/pseudocode.js + css/pseudocode.css。
 //   科目B サンプル問題 4 問追加（プログラミング 3・情報セキュリティ 1）。
-const CACHE_NAME = 'fe-navi-v3';
-const DATA_CACHE_NAME = 'fe-navi-data-v3';
+// v4 (app-version 0.4.0): Phase C — シラバス Ver.9.0 全節タイトル展開（29章×235節）。
+//   各節は body/keywords/summary_points が空のスケルトン。教科書本文は Phase A で投入予定。
+const CACHE_NAME = 'fe-navi-v4';
+const DATA_CACHE_NAME = 'fe-navi-data-v4';
 
 // アプリシェル（UIリソース）：初回インストール時にキャッシュするファイルリスト
 const APP_SHELL_FILES = [
