@@ -23,8 +23,10 @@
 //   科目B サンプル問題 4 問追加（プログラミング 3・情報セキュリティ 1）。
 // v4 (app-version 0.4.0): Phase C — シラバス Ver.9.0 全節タイトル展開（29章×235節）。
 //   各節は body/keywords/summary_points が空のスケルトン。教科書本文は Phase A で投入予定。
-const CACHE_NAME = 'fe-navi-v4';
-const DATA_CACHE_NAME = 'fe-navi-data-v4';
+// v5 (app-version 0.5.0): Phase B — 科目A 4択問題 230問追加（既存14問→244問）。
+//   並列 Sonnet 6本で生成。23章をすべて 6〜14 問でカバー、正解分布ほぼ均等。
+const CACHE_NAME = 'fe-navi-v5';
+const DATA_CACHE_NAME = 'fe-navi-data-v5';
 
 // アプリシェル（UIリソース）：初回インストール時にキャッシュするファイルリスト
 const APP_SHELL_FILES = [
