@@ -25,8 +25,11 @@
 //   各節は body/keywords/summary_points が空のスケルトン。教科書本文は Phase A で投入予定。
 // v5 (app-version 0.5.0): Phase B — 科目A 4択問題 230問追加（既存14問→244問）。
 //   並列 Sonnet 6本で生成。23章をすべて 6〜14 問でカバー、正解分布ほぼ均等。
-const CACHE_NAME = 'fe-navi-v5';
-const DATA_CACHE_NAME = 'fe-navi-data-v5';
+// v6 (app-version 0.6.0): Phase A — 教科書本文（body/keywords/summary_points）生成。
+//   試走 A-tech-01 + 並列9エージェント（Sonnet 5・Haiku 4）で 28章225節を一括生成。
+//   全235節 body 平均452字 / keywords 4〜6個 / summary_points 3点を完備。
+const CACHE_NAME = 'fe-navi-v6';
+const DATA_CACHE_NAME = 'fe-navi-data-v6';
 
 // アプリシェル（UIリソース）：初回インストール時にキャッシュするファイルリスト
 const APP_SHELL_FILES = [
