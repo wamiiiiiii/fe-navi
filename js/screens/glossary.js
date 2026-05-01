@@ -5,7 +5,7 @@
  */
 
 import { loadGlossary, searchTerms, filterTermsByKanaRow } from '../dataLoader.js';
-import { navigate } from '../router.js';
+import { navigate, getCurrentRoute } from '../router.js';
 import {
   createElement,
   renderInto,
@@ -40,6 +40,8 @@ export async function renderGlossary(container, params = {}, query = {}) {
   try {
     // データを読み込む（2回目以降はdataLoaderのキャッシュから返る）
     _glossaryData = await loadGlossary();
+    // 非同期データロード中に他画面へ遷移していたら、用語辞書描画は破棄する（レース防止）
+    if (getCurrentRoute()?.name !== 'glossary') return;
 
     // フィルター状態を初期化（URLパラメータを反映）
     _currentFilter = {
@@ -52,6 +54,7 @@ export async function renderGlossary(container, params = {}, query = {}) {
 
   } catch (error) {
     console.error('[Glossary] 描画に失敗しました:', error);
+    if (getCurrentRoute()?.name !== 'glossary') return;
     renderInto(container, [
       createEmptyState('⚠️', 'データの読み込みに失敗しました。ページを更新してください。'),
     ]);
@@ -65,11 +68,12 @@ export async function renderGlossary(container, params = {}, query = {}) {
 function renderGlossaryScreen(container) {
   const screen = createElement('div', { classes: ['glossary-screen'] });
 
-  // 検索バー
-  screen.appendChild(buildSearchBar(container));
-
-  // フィルタータブバー
-  screen.appendChild(buildFilterBar(container));
+  // 検索バー＋フィルタータブバーをまとめて sticky にする親
+  // （検索バーの高さに依存せず、両方が一体で固定スクロールするため）
+  const stickyHeader = createElement('div', { classes: ['glossary-sticky-header'] });
+  stickyHeader.appendChild(buildSearchBar(container));
+  stickyHeader.appendChild(buildFilterBar(container));
+  screen.appendChild(stickyHeader);
 
   // 用語リスト
   screen.appendChild(buildTermList());
@@ -284,8 +288,9 @@ function appendTermsToList(listEl, terms) {
 
   // 50音順でグループ化（検索中はグループなし）
   if (_currentFilter.query) {
-    // 検索中はグループなしでフラットに表示
-    terms.forEach((term) => {
+    // 検索中はグループなしでフラットに表示（読み仮名で50音順ソート）
+    const sortedTerms = terms.slice().sort((a, b) => a.reading.localeCompare(b.reading, 'ja'));
+    sortedTerms.forEach((term) => {
       listEl.appendChild(buildTermCard(term));
     });
     return;
@@ -495,6 +500,9 @@ function groupTermsByKana(terms) {
     'わをん':                   'わ行',
   };
 
+  // グループの表示順（あ行→か行→...→わ行→その他）
+  const rowOrder = ['あ行', 'か行', 'さ行', 'た行', 'な行', 'は行', 'ま行', 'や行', 'ら行', 'わ行', 'その他'];
+
   /** 文字が属する行ラベルを返す */
   const getKanaRow = (char) => {
     for (const [chars, label] of Object.entries(kanaRowMap)) {
@@ -516,7 +524,13 @@ function groupTermsByKana(terms) {
     groupMap.get(rowLabel).push(term);
   });
 
-  return Array.from(groupMap.entries()).map(([header, terms]) => ({ header, terms }));
+  // グループ自体は rowOrder の順、各グループ内は reading で50音順にソート
+  return rowOrder
+    .filter((label) => groupMap.has(label))
+    .map((label) => ({
+      header: label,
+      terms: groupMap.get(label).slice().sort((a, b) => a.reading.localeCompare(b.reading, 'ja')),
+    }));
 }
 
 /**

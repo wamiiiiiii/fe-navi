@@ -28,8 +28,16 @@
 // v6 (app-version 0.6.0): Phase A — 教科書本文（body/keywords/summary_points）生成。
 //   試走 A-tech-01 + 並列9エージェント（Sonnet 5・Haiku 4）で 28章225節を一括生成。
 //   全235節 body 平均452字 / keywords 4〜6個 / summary_points 3点を完備。
-const CACHE_NAME = 'fe-navi-v6';
-const DATA_CACHE_NAME = 'fe-navi-data-v6';
+// v7 (app-version 0.6.1): iPass v1.7.1〜1.7.3 で発覚・修正したバグ4件を FE ナビにも反映。
+//   1) mobile-safari の設定タブ遷移バグ：home/textbook/glossary の async 描画完了直前に
+//      getCurrentRoute() ガードを追加し、レース時に古い描画を破棄。
+//   2) 辞書スクロール時の50音インデックスのズレ：検索バーとフィルターバーを
+//      .glossary-sticky-header 親に集約し、検索バー高さに依存しない一体追従に変更。
+//   3) 損益分岐点等 timeline型図解の文字被り：annotation を絶対配置の同一行から
+//      縦並び（display:block + position:relative）に変更し、長文も折り返して重ならないように。
+//   4) 用語辞書の50音順ソート：rowOrder で表示順固定、各グループ内も localeCompare('ja') ソート。
+const CACHE_NAME = 'fe-navi-v7';
+const DATA_CACHE_NAME = 'fe-navi-data-v7';
 
 // アプリシェル（UIリソース）：初回インストール時にキャッシュするファイルリスト
 const APP_SHELL_FILES = [
