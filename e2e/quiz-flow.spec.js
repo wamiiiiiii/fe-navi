@@ -84,11 +84,12 @@ test.describe('問題演習フロー', () => {
     const firstChoice = page.locator('.choice-btn').first();
     await firstChoice.click();
 
-    // 「確定」ボタンが現れる（CBT準拠の選択→確定式）
-    const confirmBtn = page.getByRole('button', { name: /確定|決定|次へ/ });
-    if (await confirmBtn.isVisible({ timeout: 1000 }).catch(() => false)) {
-      await confirmBtn.click();
-    }
+    // 確定ボタン（FE実体クラス .confirm-answer-btn）をクリック
+    // CBT準拠の選択→確定式：選択するまでは disabled、選択後に enabled になる
+    const confirmBtn = page.locator('.confirm-answer-btn');
+    await confirmBtn.scrollIntoViewIfNeeded();
+    await expect(confirmBtn).toBeEnabled({ timeout: 2_000 });
+    await confirmBtn.click();
 
     // 解説カード or 正解/不正解ラベルが表示される
     await expect(page.locator('.explanation-card, .marubatsu-feedback-label')).toBeVisible({ timeout: 5_000 });

@@ -30,10 +30,9 @@ test.describe('スモークテスト：アプリ起動とナビゲーション',
     await page.locator('#nav-textbook').click();
     // 教科書画面のイントロ
     await expect(page.getByText('学習したい分野を選んでください')).toBeVisible();
-    // 3分野のカードが表示される（ストラテジ・マネジメント・テクノロジ）
-    await expect(page.getByText('ストラテジ系')).toBeVisible();
-    await expect(page.getByText('マネジメント系')).toBeVisible();
-    await expect(page.getByText('テクノロジ系')).toBeVisible();
+    // FE は科目A・科目B の2階層（その下に系列が入る）
+    await expect(page.getByText('科目A', { exact: true })).toBeVisible();
+    await expect(page.getByText('科目B', { exact: true })).toBeVisible();
   });
 
   test('演習タブに遷移してモード選択が表示される', async ({ page }) => {
