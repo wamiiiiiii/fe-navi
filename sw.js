@@ -63,6 +63,12 @@
 //   ストラテジ系51節すべてが 5問以上達成。explanation 平均149字。
 //   正解分布 a=51/b=52/c=53/d=51（理想的均等）、難易度 1=60/2=93/3=54。
 //   total questions: 376 → 583問（科目A 513 + 科目B 70）。
+// v15 (app-version 0.13.0): データのエクスポート/インポート機能を追加（販売前必須機能）。
+//   設定画面「データ管理」に「データをバックアップ」「データを復元」項目を追加。
+//   - バックアップ：localStorage の fe_* を JSON で書き出し（fe-navi-backup-YYYY-MM-DD.json）
+//   - 復元：バックアップ JSON を選択 → 既存データを上書きして復元 → 設定画面再描画＋テーマ/文字サイズ再適用
+//   iPass v1.7.4 の同機能をポート。機種変更・キャッシュクリア時の引き継ぎに対応。
+//
 // v14 (app-version 0.12.0): 図解12件追加（Phase G）+ 科目B 変数トレース／ステップ実行 UI（Phase 3）。
 //   1) 図解 0 → 12件：timeline=3, layer=1, compare=1, cycle=1, flow=2,
 //      matrix2x2=1, tree=2, network=1 で全レンダラー型を網羅。
@@ -101,8 +107,8 @@
 //   正解分布 a=109/b=111/c=106/d=101、難易度 1=129/2=190/3=108。
 //   全 197節（科目A）が 5問以上に到達 = 「節5問体制」完成（商品の根幹完成）。
 //   total questions: 583 → 1010問（科目A 940 + 科目B 70）。
-const CACHE_NAME = 'fe-navi-v14';
-const DATA_CACHE_NAME = 'fe-navi-data-v14';
+const CACHE_NAME = 'fe-navi-v15';
+const DATA_CACHE_NAME = 'fe-navi-data-v15';
 
 // アプリシェル（UIリソース）：初回インストール時にキャッシュするファイルリスト
 const APP_SHELL_FILES = [
