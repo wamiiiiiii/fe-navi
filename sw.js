@@ -58,8 +58,20 @@
 //   マネジメント系18節すべてが 5問以上達成。explanation 平均168字。
 //   正解分布 a=17/b=16/c=17/d=16、難易度 1=15/2=34/3=17。
 //   total questions: 310 → 376問。
-const CACHE_NAME = 'fe-navi-v10';
-const DATA_CACHE_NAME = 'fe-navi-data-v10';
+// v11 (app-version 0.9.0): 科目A ストラテジ系 7章を節5問体制に到達（Phase E-2）。
+//   並列7エージェント（章ごと分担）で 207問追加。
+//   - A-strat-01 (経営戦略・7節): +29問
+//   - A-strat-02 (システム戦略・6節): +24問
+//   - A-strat-03 (経営管理・7節): +29問
+//   - A-strat-04 (技術戦略・5節): +19問
+//   - A-strat-05 (応用システム・7節): +29問
+//   - A-strat-06 (経営財務・9節): +36問
+//   - A-strat-07 (法務・10節): +41問
+//   ストラテジ系51節すべてが 5問以上達成。explanation 平均149字。
+//   正解分布 a=51/b=52/c=53/d=51（理想的均等）、難易度 1=60/2=93/3=54。
+//   total questions: 376 → 583問（科目A 513 + 科目B 70）。
+const CACHE_NAME = 'fe-navi-v11';
+const DATA_CACHE_NAME = 'fe-navi-data-v11';
 
 // アプリシェル（UIリソース）：初回インストール時にキャッシュするファイルリスト
 const APP_SHELL_FILES = [
