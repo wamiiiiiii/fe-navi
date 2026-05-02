@@ -36,8 +36,18 @@
 //   3) 損益分岐点等 timeline型図解の文字被り：annotation を絶対配置の同一行から
 //      縦並び（display:block + position:relative）に変更し、長文も折り返して重ならないように。
 //   4) 用語辞書の50音順ソート：rowOrder で表示順固定、各グループ内も localeCompare('ja') ソート。
-const CACHE_NAME = 'fe-navi-v7';
-const DATA_CACHE_NAME = 'fe-navi-data-v7';
+// v8 (app-version 0.7.0): 科目B 4択問題を 4問 → 70問に大幅拡充（Phase D）。
+//   並列5エージェント（Sonnet）+ 試走1エージェントで6章を分担生成。
+//   - B-sec-01 (12問・情報セキュリティ基本)
+//   - B-sec-02 (10問・情報セキュリティ管理)
+//   - B-prog-01 (12問・プログラミング基礎・pseudocode 7問)
+//   - B-prog-02 (14問・アルゴリズムとデータ構造・pseudocode 9問)
+//   - B-prog-03 (12問・処理形態と関数・pseudocode 7問)
+//   - B-prog-04 (10問・テスト・保守・pseudocode 5問)
+//   pseudocode 付き総数 28問。explanation 平均 189字。正解分布 a=21/b=17/c=17/d=15。
+//   既存サンプル4問（章単位粒度）は新形式（節単位粒度）と入れ替え。
+const CACHE_NAME = 'fe-navi-v8';
+const DATA_CACHE_NAME = 'fe-navi-data-v8';
 
 // アプリシェル（UIリソース）：初回インストール時にキャッシュするファイルリスト
 const APP_SHELL_FILES = [
