@@ -63,6 +63,13 @@
 //   ストラテジ系51節すべてが 5問以上達成。explanation 平均149字。
 //   正解分布 a=51/b=52/c=53/d=51（理想的均等）、難易度 1=60/2=93/3=54。
 //   total questions: 376 → 583問（科目A 513 + 科目B 70）。
+// v13 (app-version 0.11.0): 用語辞書を 12 → 1101語に大幅拡充（Phase F）。
+//   並列8エージェント（chunk 137 + 136×7）で 1089語の reading / category /
+//   definition (120〜200字) / related_terms を生成。教科書 keywords の全未登録
+//   ユニーク語をカバー。
+//   カテゴリ分布: A=821 / B=203 / common=65。reading 完備、平均 132字、エラー0。
+//   total terms: 12 → 1101語。教科書本文・問題と相互リンクできる用語密度に到達。
+//
 // v12 (app-version 0.10.0): 科目A テクノロジ系 13章を節5問体制に到達（Phase E-3 完）。
 //   並列13エージェント（章ごと分担）で 427問追加。これで「節5問体制」全完成。
 //   - A-tech-01 (基礎理論・10節): +38問
@@ -82,8 +89,8 @@
 //   正解分布 a=109/b=111/c=106/d=101、難易度 1=129/2=190/3=108。
 //   全 197節（科目A）が 5問以上に到達 = 「節5問体制」完成（商品の根幹完成）。
 //   total questions: 583 → 1010問（科目A 940 + 科目B 70）。
-const CACHE_NAME = 'fe-navi-v12';
-const DATA_CACHE_NAME = 'fe-navi-data-v12';
+const CACHE_NAME = 'fe-navi-v13';
+const DATA_CACHE_NAME = 'fe-navi-data-v13';
 
 // アプリシェル（UIリソース）：初回インストール時にキャッシュするファイルリスト
 const APP_SHELL_FILES = [
