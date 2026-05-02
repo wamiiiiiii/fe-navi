@@ -1,4 +1,560 @@
 {
-  "version": "0.1.0",
-  "diagrams": {}
+  "version": "0.12.0",
+  "diagrams": {
+    "A-tech-10-01": {
+      "type": "layer",
+      "title": "OSI参照モデル7階層",
+      "direction": "bottom-up",
+      "layers": [
+        {
+          "label": "第7層 アプリケーション層",
+          "color": "purple",
+          "items": [
+            "HTTP",
+            "FTP",
+            "SMTP",
+            "DNS"
+          ]
+        },
+        {
+          "label": "第6層 プレゼンテーション層",
+          "color": "purple",
+          "items": [
+            "文字コード変換",
+            "圧縮",
+            "暗号化"
+          ]
+        },
+        {
+          "label": "第5層 セッション層",
+          "color": "blue",
+          "items": [
+            "セッション確立",
+            "同期",
+            "再開制御"
+          ]
+        },
+        {
+          "label": "第4層 トランスポート層",
+          "color": "blue",
+          "items": [
+            "TCP",
+            "UDP",
+            "ポート番号"
+          ]
+        },
+        {
+          "label": "第3層 ネットワーク層",
+          "color": "green",
+          "items": [
+            "IP",
+            "ICMP",
+            "ルーティング"
+          ]
+        },
+        {
+          "label": "第2層 データリンク層",
+          "color": "green",
+          "items": [
+            "MACアドレス",
+            "イーサネット",
+            "PPP"
+          ]
+        },
+        {
+          "label": "第1層 物理層",
+          "color": "orange",
+          "items": [
+            "電気信号",
+            "ケーブル",
+            "コネクタ"
+          ]
+        }
+      ]
+    },
+    "A-strat-03-01": {
+      "type": "matrix2x2",
+      "title": "SWOT分析（内部×外部 × プラス×マイナス）",
+      "axes": {
+        "x": [
+          "プラス要因",
+          "マイナス要因"
+        ],
+        "y": [
+          "内部環境",
+          "外部環境"
+        ]
+      },
+      "cells": [
+        {
+          "label": "S：強み (Strengths)",
+          "color": "green",
+          "items": [
+            "自社の優位な技術・ブランド",
+            "豊富な顧客基盤",
+            "高い品質・人材"
+          ]
+        },
+        {
+          "label": "W：弱み (Weaknesses)",
+          "color": "orange",
+          "items": [
+            "資金力・規模の不足",
+            "ブランド認知の低さ",
+            "経営資源の偏り"
+          ]
+        },
+        {
+          "label": "O：機会 (Opportunities)",
+          "color": "blue",
+          "items": [
+            "市場の成長・拡大",
+            "規制緩和・新技術の普及",
+            "競合の撤退"
+          ]
+        },
+        {
+          "label": "T：脅威 (Threats)",
+          "color": "red",
+          "items": [
+            "競合の参入・台頭",
+            "市場の縮小・需要減",
+            "法規制の強化"
+          ]
+        }
+      ]
+    },
+    "A-strat-06-03": {
+      "type": "cycle",
+      "title": "PDCAサイクル（継続的改善）",
+      "center": "PDCA",
+      "steps": [
+        {
+          "icon": "P",
+          "label": "Plan：計画\n目標設定・方針策定"
+        },
+        {
+          "icon": "D",
+          "label": "Do：実行\n計画の実施"
+        },
+        {
+          "icon": "C",
+          "label": "Check：評価\n結果の測定・分析"
+        },
+        {
+          "icon": "A",
+          "label": "Act：改善\n次サイクルへ反映"
+        }
+      ]
+    },
+    "A-mgmt-01-02": {
+      "type": "timeline",
+      "title": "プロジェクト工程フロー（ガントチャート例）",
+      "segments": [
+        {
+          "label": "要件定義",
+          "duration": 2,
+          "color": "blue"
+        },
+        {
+          "label": "基本設計",
+          "duration": 2,
+          "color": "blue"
+        },
+        {
+          "label": "詳細設計",
+          "duration": 2,
+          "color": "green"
+        },
+        {
+          "label": "実装",
+          "duration": 4,
+          "color": "green"
+        },
+        {
+          "label": "テスト",
+          "duration": 3,
+          "color": "orange"
+        },
+        {
+          "label": "移行・運用",
+          "duration": 1,
+          "color": "purple"
+        }
+      ],
+      "annotations": [
+        {
+          "label": "上流工程（V字モデル左側）",
+          "from": 0,
+          "to": 3,
+          "position": "above"
+        },
+        {
+          "label": "下流工程（V字モデル右側）",
+          "from": 3,
+          "to": 6,
+          "position": "above"
+        },
+        {
+          "label": "全体工期：14か月",
+          "from": 0,
+          "to": 6,
+          "position": "below"
+        }
+      ]
+    },
+    "A-tech-13-02": {
+      "type": "compare",
+      "title": "アジャイル vs ウォーターフォール",
+      "headers": [
+        "項目",
+        "アジャイル",
+        "ウォーターフォール"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "進め方",
+            "短い反復（イテレーション）",
+            "上流→下流の一方通行"
+          ]
+        },
+        {
+          "cells": [
+            "要件変更",
+            "歓迎・柔軟に対応",
+            "原則として認めない"
+          ]
+        },
+        {
+          "cells": [
+            "成果物の確認",
+            "数週間ごとに動くものを提示",
+            "工程末でドキュメント中心"
+          ]
+        },
+        {
+          "cells": [
+            "ドキュメント",
+            "必要最小限",
+            "詳細・網羅的"
+          ]
+        },
+        {
+          "cells": [
+            "代表手法",
+            "スクラム・XP・カンバン",
+            "V字モデル・SLCP標準"
+          ]
+        },
+        {
+          "cells": [
+            "向く案件",
+            "要件が変わりやすい・新規性の高い案件",
+            "要件が固定・大規模・公共案件",
+            ""
+          ],
+          "highlight": true
+        }
+      ]
+    },
+    "A-strat-06-01": {
+      "type": "tree",
+      "title": "経営組織形態の体系",
+      "root": {
+        "label": "経営組織",
+        "children": [
+          {
+            "label": "ライン型組織",
+            "children": [
+              {
+                "label": "職能別組織"
+              },
+              {
+                "label": "事業部制組織"
+              }
+            ]
+          },
+          {
+            "label": "ライン・スタッフ型",
+            "children": [
+              {
+                "label": "スタッフ部門が支援"
+              }
+            ]
+          },
+          {
+            "label": "プロジェクト型",
+            "children": [
+              {
+                "label": "マトリックス組織"
+              },
+              {
+                "label": "プロジェクト組織"
+              }
+            ]
+          },
+          {
+            "label": "新しい形態",
+            "children": [
+              {
+                "label": "カンパニー制"
+              },
+              {
+                "label": "持株会社（HD）"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "A-tech-10-03": {
+      "type": "network",
+      "title": "DMZを用いたLAN構成",
+      "zones": [
+        {
+          "label": "インターネット",
+          "color": "red",
+          "nodes": [
+            "外部利用者",
+            "攻撃者"
+          ]
+        },
+        {
+          "label": "DMZ（非武装地帯）",
+          "color": "orange",
+          "nodes": [
+            "Webサーバ",
+            "メールサーバ",
+            "DNSサーバ"
+          ]
+        },
+        {
+          "label": "内部LAN",
+          "color": "green",
+          "nodes": [
+            "業務PC",
+            "ファイルサーバ",
+            "DBサーバ"
+          ]
+        }
+      ],
+      "firewalls": [
+        {
+          "between": [
+            0,
+            1
+          ],
+          "label": "外部FW"
+        },
+        {
+          "between": [
+            1,
+            2
+          ],
+          "label": "内部FW"
+        }
+      ]
+    },
+    "A-tech-09-03": {
+      "type": "flow",
+      "title": "データベース正規化のフロー（第1〜第3正規形）",
+      "steps": [
+        {
+          "icon": "0",
+          "label": "非正規形\n繰返し項目あり"
+        },
+        {
+          "icon": "1",
+          "label": "第1正規形\n繰返しを排除"
+        },
+        {
+          "icon": "2",
+          "label": "第2正規形\n部分関数従属を排除"
+        },
+        {
+          "icon": "3",
+          "label": "第3正規形\n推移関数従属を排除"
+        }
+      ]
+    },
+    "A-tech-04-04": {
+      "type": "timeline",
+      "title": "MTBFとMTTR（稼働率の考え方）",
+      "segments": [
+        {
+          "label": "稼働",
+          "duration": 9,
+          "color": "green"
+        },
+        {
+          "label": "故障",
+          "duration": 1,
+          "color": "red"
+        },
+        {
+          "label": "稼働",
+          "duration": 9,
+          "color": "green"
+        },
+        {
+          "label": "故障",
+          "duration": 1,
+          "color": "red"
+        }
+      ],
+      "annotations": [
+        {
+          "label": "MTBF（平均故障間隔）",
+          "from": 0,
+          "to": 1,
+          "position": "above"
+        },
+        {
+          "label": "MTTR（平均修復時間）",
+          "from": 1,
+          "to": 2,
+          "position": "above"
+        },
+        {
+          "label": "稼働率 = MTBF ÷ (MTBF + MTTR)",
+          "from": 0,
+          "to": 4,
+          "position": "below"
+        }
+      ]
+    },
+    "A-tech-13-01": {
+      "type": "flow",
+      "title": "ウォーターフォール開発モデル",
+      "steps": [
+        {
+          "icon": "1",
+          "label": "要件定義"
+        },
+        {
+          "icon": "2",
+          "label": "基本設計"
+        },
+        {
+          "icon": "3",
+          "label": "詳細設計"
+        },
+        {
+          "icon": "4",
+          "label": "実装"
+        },
+        {
+          "icon": "5",
+          "label": "テスト"
+        },
+        {
+          "icon": "6",
+          "label": "運用・保守"
+        }
+      ]
+    },
+    "A-strat-06-07": {
+      "type": "timeline",
+      "title": "損益分岐点（Break-Even Point）の構造",
+      "segments": [
+        {
+          "label": "固定費（販売量に関係なく発生）",
+          "duration": 4,
+          "color": "gray"
+        },
+        {
+          "label": "変動費（販売量に比例）",
+          "duration": 3,
+          "color": "orange"
+        },
+        {
+          "label": "利益（売上−総費用）",
+          "duration": 3,
+          "color": "green"
+        }
+      ],
+      "annotations": [
+        {
+          "label": "総費用（固定費+変動費）",
+          "from": 0,
+          "to": 2,
+          "position": "above"
+        },
+        {
+          "label": "損益分岐点：売上=総費用となる点",
+          "from": 0,
+          "to": 2,
+          "position": "below"
+        },
+        {
+          "label": "売上高（固定費+変動費+利益）",
+          "from": 0,
+          "to": 3,
+          "position": "below"
+        }
+      ]
+    },
+    "A-tech-05-04": {
+      "type": "tree",
+      "title": "ファイルシステムのディレクトリ階層",
+      "root": {
+        "label": "/（ルート）",
+        "children": [
+          {
+            "label": "bin",
+            "children": [
+              {
+                "label": "ls"
+              },
+              {
+                "label": "cp"
+              }
+            ]
+          },
+          {
+            "label": "etc",
+            "children": [
+              {
+                "label": "passwd"
+              },
+              {
+                "label": "hosts"
+              }
+            ]
+          },
+          {
+            "label": "home",
+            "children": [
+              {
+                "label": "user1",
+                "children": [
+                  {
+                    "label": "docs"
+                  },
+                  {
+                    "label": "photos"
+                  }
+                ]
+              },
+              {
+                "label": "user2"
+              }
+            ]
+          },
+          {
+            "label": "var",
+            "children": [
+              {
+                "label": "log"
+              },
+              {
+                "label": "tmp"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
 }

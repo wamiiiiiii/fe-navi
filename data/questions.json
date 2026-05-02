@@ -1,5 +1,5 @@
 {
-  "version": "0.10.0",
+  "version": "0.12.0",
   "questions": [
     {
       "question_id": "FE-A-M01-001",
@@ -10439,6 +10439,91 @@
         "疑似言語",
         "繰返し",
         "トレース"
+      ],
+      "trace_steps": [
+        {
+          "line": 3,
+          "vars": {
+            "sum": 0
+          }
+        },
+        {
+          "line": 4,
+          "vars": {
+            "sum": 0,
+            "i": 1
+          }
+        },
+        {
+          "line": 5,
+          "vars": {
+            "sum": 1,
+            "i": 1
+          }
+        },
+        {
+          "line": 4,
+          "vars": {
+            "sum": 1,
+            "i": 2
+          }
+        },
+        {
+          "line": 5,
+          "vars": {
+            "sum": 3,
+            "i": 2
+          }
+        },
+        {
+          "line": 4,
+          "vars": {
+            "sum": 3,
+            "i": 3
+          }
+        },
+        {
+          "line": 5,
+          "vars": {
+            "sum": 6,
+            "i": 3
+          }
+        },
+        {
+          "line": 4,
+          "vars": {
+            "sum": 6,
+            "i": 4
+          }
+        },
+        {
+          "line": 5,
+          "vars": {
+            "sum": 10,
+            "i": 4
+          }
+        },
+        {
+          "line": 4,
+          "vars": {
+            "sum": 10,
+            "i": 5
+          }
+        },
+        {
+          "line": 5,
+          "vars": {
+            "sum": 15,
+            "i": 5
+          }
+        },
+        {
+          "line": 6,
+          "vars": {
+            "sum": 15,
+            "i": 5
+          }
+        }
       ]
     },
     {
@@ -10601,6 +10686,91 @@
         "疑似言語",
         "条件分岐",
         "トレース"
+      ],
+      "trace_steps": [
+        {
+          "line": 3,
+          "vars": {
+            "count": 0
+          }
+        },
+        {
+          "line": 4,
+          "vars": {
+            "count": 0,
+            "i": 1
+          }
+        },
+        {
+          "line": 5,
+          "vars": {
+            "count": 0,
+            "i": 1
+          }
+        },
+        {
+          "line": 4,
+          "vars": {
+            "count": 0,
+            "i": 2
+          }
+        },
+        {
+          "line": 6,
+          "vars": {
+            "count": 1,
+            "i": 2
+          }
+        },
+        {
+          "line": 4,
+          "vars": {
+            "count": 1,
+            "i": 3
+          }
+        },
+        {
+          "line": 4,
+          "vars": {
+            "count": 1,
+            "i": 4
+          }
+        },
+        {
+          "line": 6,
+          "vars": {
+            "count": 2,
+            "i": 4
+          }
+        },
+        {
+          "line": 6,
+          "vars": {
+            "count": 3,
+            "i": 6
+          }
+        },
+        {
+          "line": 6,
+          "vars": {
+            "count": 4,
+            "i": 8
+          }
+        },
+        {
+          "line": 6,
+          "vars": {
+            "count": 5,
+            "i": 10
+          }
+        },
+        {
+          "line": 8,
+          "vars": {
+            "count": 5,
+            "i": 10
+          }
+        }
       ]
     },
     {
@@ -10641,6 +10811,102 @@
         "疑似言語",
         "二重ループ",
         "条件分岐"
+      ],
+      "trace_steps": [
+        {
+          "line": 3,
+          "vars": {
+            "result": 0
+          }
+        },
+        {
+          "line": 5,
+          "vars": {
+            "result": 0,
+            "i": 1,
+            "j": 1
+          }
+        },
+        {
+          "line": 7,
+          "vars": {
+            "result": 1,
+            "i": 1,
+            "j": 1
+          }
+        },
+        {
+          "line": 5,
+          "vars": {
+            "result": 1,
+            "i": 1,
+            "j": 2
+          }
+        },
+        {
+          "line": 5,
+          "vars": {
+            "result": 1,
+            "i": 1,
+            "j": 3
+          }
+        },
+        {
+          "line": 5,
+          "vars": {
+            "result": 1,
+            "i": 2,
+            "j": 1
+          }
+        },
+        {
+          "line": 5,
+          "vars": {
+            "result": 1,
+            "i": 2,
+            "j": 2
+          }
+        },
+        {
+          "line": 7,
+          "vars": {
+            "result": 3,
+            "i": 2,
+            "j": 2
+          }
+        },
+        {
+          "line": 5,
+          "vars": {
+            "result": 3,
+            "i": 2,
+            "j": 3
+          }
+        },
+        {
+          "line": 5,
+          "vars": {
+            "result": 3,
+            "i": 3,
+            "j": 3
+          }
+        },
+        {
+          "line": 7,
+          "vars": {
+            "result": 6,
+            "i": 3,
+            "j": 3
+          }
+        },
+        {
+          "line": 10,
+          "vars": {
+            "result": 6,
+            "i": 3,
+            "j": 3
+          }
+        }
       ]
     },
     {

@@ -131,3 +131,145 @@ export function renderPseudocode(code, options = {}) {
 
   return container;
 }
+
+/**
+ * 疑似言語コード文字列をトレース実行可能なUIとともに描画する
+ * 「次へ」ボタンで1ステップずつ進め、現在実行中の行をハイライトし、
+ * その時点の変数値を表で表示する。学習者が頭の中で実行する手間を減らす。
+ *
+ * trace_steps は問題データ側に持たせる：
+ *   trace_steps: [
+ *     { line: 1, vars: { x: 0 } },
+ *     { line: 2, vars: { x: 0, i: 1 } },
+ *     ...
+ *   ]
+ *
+ * @param {string} code - コード片（改行区切り）
+ * @param {Array<{line: number, vars: Object}>} traceSteps - 各ステップの状態
+ * @returns {HTMLElement} トレースUI付きコードブロック
+ */
+export function renderPseudocodeWithTrace(code, traceSteps) {
+  const wrapper = createElement('div', { classes: ['pseudo-trace-wrapper'] });
+
+  if (typeof code !== 'string' || !Array.isArray(traceSteps) || traceSteps.length === 0) {
+    // 不正データの場合は通常のレンダラーにフォールバック
+    wrapper.appendChild(renderPseudocode(code));
+    return wrapper;
+  }
+
+  // コードブロック（行ハイライト用にDOMを保持）
+  const lines = code.replace(/\n+$/, '').split('\n');
+  const block = createElement('pre', {
+    classes: ['pseudo-block', 'pseudo-trace-block'],
+    attrs: { 'aria-label': '疑似言語コード（トレース可能）' },
+  });
+
+  const lineEls = [];
+  lines.forEach((line, idx) => {
+    const lineEl = createElement('span', { classes: ['pseudo-line'] });
+    const num = createElement('span', {
+      classes: ['pseudo-lineno'],
+      text: String(idx + 1).padStart(2, ' '),
+      attrs: { 'aria-hidden': 'true' },
+    });
+    lineEl.appendChild(num);
+    const contentEl = createElement('span', { classes: ['pseudo-content'] });
+    contentEl.appendChild(renderLineContent(line));
+    lineEl.appendChild(contentEl);
+    block.appendChild(lineEl);
+    lineEls.push(lineEl);
+  });
+  wrapper.appendChild(block);
+
+  // 変数表（変数名＝値の組）
+  const varsBox = createElement('div', { classes: ['pseudo-trace-vars'] });
+  const varsLabel = createElement('div', { classes: ['pseudo-trace-vars-label'], text: '変数の状態' });
+  varsBox.appendChild(varsLabel);
+  const varsTable = createElement('div', { classes: ['pseudo-trace-vars-table'] });
+  varsBox.appendChild(varsTable);
+  wrapper.appendChild(varsBox);
+
+  // 操作ボタン
+  const ctrls = createElement('div', { classes: ['pseudo-trace-ctrls'] });
+  const stepLabel = createElement('span', { classes: ['pseudo-trace-step-label'], text: '' });
+  const prevBtn = createElement('button', { classes: ['pseudo-trace-btn'], text: '← 前へ' });
+  const nextBtn = createElement('button', { classes: ['pseudo-trace-btn', 'pseudo-trace-btn-primary'], text: '次へ →' });
+  const resetBtn = createElement('button', { classes: ['pseudo-trace-btn'], text: '⟲ 最初から' });
+  ctrls.appendChild(prevBtn);
+  ctrls.appendChild(nextBtn);
+  ctrls.appendChild(resetBtn);
+  ctrls.appendChild(stepLabel);
+  wrapper.appendChild(ctrls);
+
+  // 内部状態：現在のステップindex（0始まり）
+  let currentStep = 0;
+
+  function applyStep(idx) {
+    // ハイライト解除
+    lineEls.forEach((el) => el.classList.remove('pseudo-line--active'));
+
+    const step = traceSteps[idx];
+    if (!step) return;
+
+    // 該当行をハイライト（line は 1始まり）
+    const lineIdx = (step.line || 1) - 1;
+    if (lineEls[lineIdx]) {
+      lineEls[lineIdx].classList.add('pseudo-line--active');
+    }
+
+    // 変数表を更新（イミュータブルに作り直す）
+    varsTable.innerHTML = '';
+    const vars = step.vars || {};
+    if (Object.keys(vars).length === 0) {
+      varsTable.appendChild(createElement('div', { classes: ['pseudo-trace-vars-empty'], text: '（変数なし）' }));
+    } else {
+      Object.entries(vars).forEach(([k, v]) => {
+        const row = createElement('div', { classes: ['pseudo-trace-var-row'] });
+        row.appendChild(createElement('span', { classes: ['pseudo-trace-var-name'], text: k }));
+        row.appendChild(createElement('span', { classes: ['pseudo-trace-var-eq'], text: '=' }));
+        row.appendChild(createElement('span', { classes: ['pseudo-trace-var-value'], text: formatValue(v) }));
+        varsTable.appendChild(row);
+      });
+    }
+
+    // ステップ表示・ボタン状態
+    stepLabel.textContent = `ステップ ${idx + 1} / ${traceSteps.length}`;
+    prevBtn.disabled = idx <= 0;
+    nextBtn.disabled = idx >= traceSteps.length - 1;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if (currentStep > 0) {
+      currentStep--;
+      applyStep(currentStep);
+    }
+  });
+  nextBtn.addEventListener('click', () => {
+    if (currentStep < traceSteps.length - 1) {
+      currentStep++;
+      applyStep(currentStep);
+    }
+  });
+  resetBtn.addEventListener('click', () => {
+    currentStep = 0;
+    applyStep(currentStep);
+  });
+
+  // 初期状態を適用
+  applyStep(0);
+
+  return wrapper;
+}
+
+/**
+ * 変数値を表示用の文字列に整形する（オブジェクト・配列・null も読みやすく）
+ */
+function formatValue(v) {
+  if (v === null) return 'null';
+  if (Array.isArray(v)) return '[' + v.map(formatValue).join(', ') + ']';
+  if (typeof v === 'object') {
+    return '{' + Object.entries(v).map(([k, val]) => `${k}: ${formatValue(val)}`).join(', ') + '}';
+  }
+  if (typeof v === 'string') return JSON.stringify(v);
+  return String(v);
+}

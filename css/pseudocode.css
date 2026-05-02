@@ -71,3 +71,119 @@
   color: var(--color-accent);
   font-weight: var(--font-weight-semibold);
 }
+
+/* ===================================================
+   トレース実行UI（Phase 3：科目B 変数トレース／ステップ実行）
+   =================================================== */
+.pseudo-trace-wrapper {
+  margin: var(--space-md) 0;
+}
+
+/* トレース可能なコードブロックは hover/active のために少し背景を立てる */
+.pseudo-trace-block {
+  margin: 0 0 var(--space-sm);
+}
+
+/* 現在実行中の行をハイライト */
+.pseudo-line--active {
+  background-color: var(--color-primary-light, rgba(45, 53, 97, 0.12));
+  border-left: 3px solid var(--color-primary);
+  padding-left: 4px;
+  margin-left: -7px;
+}
+
+/* 変数表 */
+.pseudo-trace-vars {
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.pseudo-trace-vars-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.pseudo-trace-vars-table {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+}
+
+.pseudo-trace-var-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: var(--font-size-sm);
+  background-color: var(--color-bg-surface);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.pseudo-trace-var-name {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.pseudo-trace-var-eq {
+  color: var(--color-text-disabled);
+}
+
+.pseudo-trace-var-value {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.pseudo-trace-vars-empty {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-disabled);
+  font-style: italic;
+}
+
+/* 操作ボタン群 */
+.pseudo-trace-ctrls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.pseudo-trace-btn {
+  padding: 6px 12px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  min-height: var(--tap-target-min);
+  transition: background-color var(--transition-fast);
+}
+
+.pseudo-trace-btn:active {
+  background-color: var(--color-bg-elevated);
+}
+
+.pseudo-trace-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pseudo-trace-btn-primary {
+  background: var(--color-primary-gradient, var(--color-primary));
+  color: var(--color-text-on-primary, white);
+  border-color: transparent;
+}
+
+.pseudo-trace-step-label {
+  margin-left: auto;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
