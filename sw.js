@@ -46,8 +46,12 @@
 //   - B-prog-04 (10問・テスト・保守・pseudocode 5問)
 //   pseudocode 付き総数 28問。explanation 平均 189字。正解分布 a=21/b=17/c=17/d=15。
 //   既存サンプル4問（章単位粒度）は新形式（節単位粒度）と入れ替え。
-const CACHE_NAME = 'fe-navi-v8';
-const DATA_CACHE_NAME = 'fe-navi-data-v8';
+// v9 (app-version 0.7.1): PWA アイコンを iPass 流用から FE 専用に差し替え。
+//   icon-192.png / icon-512.png / favicon.png を Pillow で生成（テーマカラー
+//   #2d3561 + 白文字「FE」のシンプルロゴ）。ホーム画面に追加した時のアイコンが
+//   iPass ナビと混在する問題を解消。
+const CACHE_NAME = 'fe-navi-v9';
+const DATA_CACHE_NAME = 'fe-navi-data-v9';
 
 // アプリシェル（UIリソース）：初回インストール時にキャッシュするファイルリスト
 const APP_SHELL_FILES = [
