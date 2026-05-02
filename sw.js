@@ -50,8 +50,16 @@
 //   icon-192.png / icon-512.png / favicon.png を Pillow で生成（テーマカラー
 //   #2d3561 + 白文字「FE」のシンプルロゴ）。ホーム画面に追加した時のアイコンが
 //   iPass ナビと混在する問題を解消。
-const CACHE_NAME = 'fe-navi-v9';
-const DATA_CACHE_NAME = 'fe-navi-data-v9';
+// v10 (app-version 0.8.0): 科目A マネジメント系 3章を節5問体制に到達（Phase E-1）。
+//   並列3エージェント（章ごと分担・各 17〜27問）で 66問追加。
+//   - A-mgmt-01 (プロジェクトマネジメント): 既存9 → 36問（節5×7 + 章単位1）
+//   - A-mgmt-02 (サービスマネジメント): 既存8 → 30問（節5×6）
+//   - A-mgmt-03 (システム監査): 既存8 → 25問（節5×5）
+//   マネジメント系18節すべてが 5問以上達成。explanation 平均168字。
+//   正解分布 a=17/b=16/c=17/d=16、難易度 1=15/2=34/3=17。
+//   total questions: 310 → 376問。
+const CACHE_NAME = 'fe-navi-v10';
+const DATA_CACHE_NAME = 'fe-navi-data-v10';
 
 // アプリシェル（UIリソース）：初回インストール時にキャッシュするファイルリスト
 const APP_SHELL_FILES = [
